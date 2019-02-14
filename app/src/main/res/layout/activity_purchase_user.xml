@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:theme="@style/Theme.AppCompat.NoActionBar"
+    tools:context=".activites.PurchaseUserActivity">
+
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Customer Name"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textColor="@color/textview"
+            android:textSize="14dp"
+            android:textStyle="bold" />
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/cname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/hint"
+            android:layout_marginRight="5dp"
+            android:hint="Customer name" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Item"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textColor="@color/textview"
+            android:textSize="14dp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/item"
+            android:layout_marginLeft="35dp"
+            android:layout_marginBottom="5dp"
+            android:entries="@array/item_array"
+            android:prompt="@string/Item_list"
+            android:layout_width="250dp"
+            android:layout_height="40dp"></Spinner>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Quantity"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textColor="@color/textview"
+            android:textSize="14dp"
+            android:textStyle="bold" />
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/quantity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/hint"
+            android:layout_marginRight="5dp"
+            android:hint="Sales Quantity" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textColor="@color/textview"
+            android:textSize="14dp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+
+            android:clickable="true"
+            android:hint="Sales Date" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sales Amount"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textColor="@color/textview"
+            android:textSize="14dp"
+            android:textStyle="bold" />
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/salesprice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/hint"
+            android:layout_marginRight="5dp"
+            android:inputType="numberDecimal"
+            android:hint="Sales Amount" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Debit Amount"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textColor="@color/textview"
+            android:textSize="14dp"
+            android:textStyle="bold" />
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/debit_amt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:inputType="numberDecimal"
+            android:hint="Debit Amount"
+            android:textColorHint="@color/hint"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Balance Amount"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textColor="@color/textview"
+            android:textSize="14dp"
+            android:textStyle="bold" />
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/balance_amt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:inputType="numberDecimal"
+            android:textColorHint="@color/hint"
+            android:clickable="true"
+            android:hint="Balance" />
+
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/salesentry"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="150dp"
+            android:layout_marginBottom="2dp"
+            android:background="@drawable/rounded_button2"
+            android:text="Save"
+            android:textColorHint="@color/hint"
+            android:textAllCaps="false" />
+    </LinearLayout>
+
+
+
+</RelativeLayout>

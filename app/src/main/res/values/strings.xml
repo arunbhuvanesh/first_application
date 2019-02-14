@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Inventory</string>
+    <string name="loginFailed">Login failed!!try again..!</string>
+    <string name="loginSuccess">Login Success!!!</string>
+    <string name="title_activity_show_vendor_details">Show_vendorDetails</string>
+
+
+    <string name="Item_list">Choose Item</string>
+    <string-array name="item_array">
+        <item> -Select-</item>
+        <item>Idly Rice - 25kg</item>
+        <item>Idly Rice - 75kg</item>
+        <item>Ponni Rice - 25kg</item>
+        <item>Ponni Rice - 75kg</item>
+        <item>IR 20</item>
+        <item>Seeraga Samba</item>
+    </string-array>
+    <string name="title_activity_show__userdetails">Show_Userdetails</string>
+</resources>
