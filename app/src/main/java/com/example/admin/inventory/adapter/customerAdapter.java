@@ -1,6 +1,7 @@
 package com.example.admin.inventory.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 import com.daimajia.swipe.SwipeLayout;
 import com.daimajia.swipe.adapters.RecyclerSwipeAdapter;
 import com.example.admin.inventory.R;
+import com.example.admin.inventory.activites.updateUsers;
 import com.example.admin.inventory.model.Customers;
 import com.example.admin.inventory.remote.ApiInterface;
 
@@ -44,13 +46,14 @@ public class customerAdapter extends RecyclerSwipeAdapter<customerAdapter.custom
     @Override
     public void onBindViewHolder(@NonNull customerAdapter.customerViewHolder customerViewHolder, int i) {
         final Customers customers=customersEntryList.get(i);
-        customerViewHolder.uid.setText("00"+customers.getId());
+        customerViewHolder.uid.setText(customers.getId());
         customerViewHolder.cname.setText(customers.getUsername());
         customerViewHolder.caddress.setText(customers.getAddress());
         customerViewHolder.carea.setText(customers.getArea());
         customerViewHolder.cmail.setText(customers.getEmail());
         customerViewHolder.cphone.setText(customers.getPhone());
         customerViewHolder.cref.setText(customers.getReference());
+        customerViewHolder.rphone.setText(customers.getR_phone());
 
 
         customerViewHolder.swipeLayout.setShowMode(SwipeLayout.ShowMode.PullOut);
@@ -97,6 +100,24 @@ public class customerAdapter extends RecyclerSwipeAdapter<customerAdapter.custom
    // Toast.makeText(context,"id "+customers.getId(),Toast.LENGTH_SHORT).show();
             }
         });
+        customerViewHolder.edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent editintent = new Intent(context, updateUsers.class);
+                editintent.putExtra("customer Id",customers.getId());
+                editintent.putExtra("customer name",customers.getUsername());
+                editintent.putExtra("customer address",customers.getAddress());
+                editintent.putExtra("customer area",customers.getArea());
+                editintent.putExtra("customer email",customers.getEmail());
+                editintent.putExtra("customer mobile",customers.getPhone());
+                editintent.putExtra("reference",customers.getReference());
+                editintent.putExtra("ref mobile",customers.getR_phone());
+
+                context.startActivity(editintent);
+
+
+            }
+        });
 
 
     }
@@ -114,7 +135,7 @@ public class customerAdapter extends RecyclerSwipeAdapter<customerAdapter.custom
 
     public class customerViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         SwipeLayout swipeLayout;
-        TextView cname,caddress,carea,cmail,cphone,cref,uid;
+        TextView cname,caddress,carea,cmail,cphone,cref,uid,rphone;
         ImageView edit, delete;
         Switch aSwitch;
 
@@ -131,6 +152,7 @@ public class customerAdapter extends RecyclerSwipeAdapter<customerAdapter.custom
             cmail=itemView.findViewById(R.id.cemail);
             cphone=itemView.findViewById(R.id.cphone);
             cref=itemView.findViewById(R.id.cref);
+            rphone=itemView.findViewById(R.id.rphone);
             delete = itemView.findViewById(R.id.deleteicon);
             edit = itemView.findViewById(R.id.editicon);
             aSwitch=itemView.findViewById(R.id.btnLocation);

@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.daimajia.swipe.SwipeLayout;
+import com.daimajia.swipe.adapters.RecyclerSwipeAdapter;
 import com.example.admin.inventory.R;
 import com.example.admin.inventory.activites.updateVendors;
 import com.example.admin.inventory.model.Vendors;
@@ -20,7 +22,7 @@ import com.example.admin.inventory.remote.ApiInterface;
 import java.util.ArrayList;
 import java.util.List;
 
-public class vendorAdapter extends RecyclerView.Adapter<vendorAdapter.vendorViewHolder>  {
+public class vendorAdapter extends RecyclerSwipeAdapter<vendorAdapter.vendorViewHolder> {
     ApiInterface apiInterface;
     private Context context;
     private List<Vendors> vendorsList;
@@ -58,11 +60,50 @@ userViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
         userViewHolder.mail.setText(vendors.getVEmail());
 
 
+        userViewHolder.swipeLayout.setShowMode(SwipeLayout.ShowMode.PullOut);
+        //from the left
+        userViewHolder.swipeLayout.addDrag(SwipeLayout.DragEdge.Left, userViewHolder.swipeLayout.findViewById(R.id.bottom_wrapper1));
+        //from the right
+        userViewHolder.swipeLayout.addDrag(SwipeLayout.DragEdge.Right,userViewHolder.swipeLayout.findViewById(R.id.bottom_wraper));
+
+        userViewHolder.swipeLayout.addSwipeListener(new SwipeLayout.SwipeListener() {
+            @Override
+            public void onStartOpen(SwipeLayout layout) {
+
+            }
+
+            @Override
+            public void onOpen(SwipeLayout layout) {
+
+            }
+
+            @Override
+            public void onStartClose(SwipeLayout layout) {
+
+            }
+
+            @Override
+            public void onClose(SwipeLayout layout) {
+
+            }
+
+            @Override
+            public void onUpdate(SwipeLayout layout, int leftOffset, int topOffset) {
+
+            }
+
+            @Override
+            public void onHandRelease(SwipeLayout layout, float xvel, float yvel) {
+
+            }
+        });
+
+
         userViewHolder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 clickListener.onClick(vendors.getId());
-                Toast.makeText(context,"id is:"+vendors.getId(),Toast.LENGTH_SHORT).show();
+                //Toast.makeText(context,"id is:"+vendors.getId(),Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -106,9 +147,15 @@ userViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
         return vendorsList.size();
     }
 
+    @Override
+    public int getSwipeLayoutResourceId(int position) {
+        return R.id.swipelayout;
+    }
+
 
 
     public class vendorViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        SwipeLayout swipeLayout;
         TextView name, cname, address, phone,mail;
         ImageView edit, delete, view;
         private mClickListener clickListener;
@@ -117,7 +164,7 @@ userViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
         public vendorViewHolder(@NonNull View itemView) {
             super(itemView);
 
-
+            swipeLayout=itemView.findViewById(R.id.swipelayout);
             name = itemView.findViewById(R.id.vname);
             cname = itemView.findViewById(R.id.cname);
             address = itemView.findViewById(R.id.vaddres);

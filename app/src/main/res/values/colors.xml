@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <color name="colorPrimary">#bb0e2880</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorPrimaryDark">#E40F439E</color>
     <color name="deeppurple">#7c4dff</color>
     <color name="green">#00bfa5</color>
     <color name="colorAccent">#FF4081</color>
@@ -16,6 +16,7 @@
     <color name="drawbleTint_black">#bb000000</color>
     <color name="sam_primary">#008577</color>
     <color name="background">#FF127C80</color>
+    <color name="placeholder_bg">#dddddd</color>
 
 
 </resources>

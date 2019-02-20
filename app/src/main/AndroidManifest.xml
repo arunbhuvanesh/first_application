@@ -11,14 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".activites.updateUsers"></activity>
         <activity
             android:name=".activites.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".splash_Activity">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -33,26 +30,28 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".activites.PurchaseEntry"
-            android:label="Purchase Entry"
+            android:label="@string/purchaseEntry"
             android:theme="@style/AppTheme" />
         <activity android:name=".activites.Additems" />
-        <activity android:name=".activites.PurchaseUserActivity" />
+        <activity
+            android:name=".activites.PurchaseUserActivity"
+            android:label="@string/purchaseuserActivity"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".activites.Show_vendorDetails"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activites.VendorActivity"
-            android:label="Add Vendor"
+            android:label="@string/addVendorActivity"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".activites.updateVendors"
-            android:label="Update Vendor"
+            android:label="@string/update_Vendor"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".activites.show_Userdetails"
             android:label="@string/title_activity_show__userdetails"
             android:theme="@style/AppTheme.NoActionBar" />
-
     </application>
 
 </manifest>

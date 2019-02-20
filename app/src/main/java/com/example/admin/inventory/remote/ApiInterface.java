@@ -1,11 +1,13 @@
 package com.example.admin.inventory.remote;
 
 
+import com.example.admin.inventory.model.Admin;
 import com.example.admin.inventory.model.Customers;
 import com.example.admin.inventory.model.Itemlist;
 import com.example.admin.inventory.model.PurchaseEntry;
 import com.example.admin.inventory.model.Vendors;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import okhttp3.ResponseBody;
@@ -17,6 +19,11 @@ import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public interface ApiInterface {
+
+
+    /*admin authentication*/
+    @GET("login.php")
+    Call<Admin> login(@Query("username")String username, @Query("password")String password);
 
 
     /*vendor implemnetation*/
@@ -42,13 +49,13 @@ public interface ApiInterface {
     Call<ResponseBody> purchaseentry(@Field("product_name") String productname, @Field("item") String item, @Field("vendor_name") String vendorname, @Field("quantity") int quantity, @Field("date") String date, @Field("p_amt") int p_amount, @Field("d_amt") int debit_amt, @Field("bal_amt") int bal_amt);
 
     /*item list for spinner*/
-    @GET("product_list.php")
-    Call<List<Itemlist>> getItemList();
+    @GET("product_json.php")
+    Call<ArrayList<Itemlist>> getItemList();
 
     /*adding customers implementation*/
     @FormUrlEncoded
     @POST("adduser.php")
-    Call<ResponseBody> addCustomers(@Field("username")String username,@Field("address")String address,@Field("area") String area,@Field("email")String email,@Field("phone")String phone,@Field("reference")String ref);
+    Call<ResponseBody> addCustomers(@Field("username")String username,@Field("address")String address,@Field("area") String area,@Field("email")String email,@Field("phone")String phone,@Field("reference")String ref,@Field("r_phone")String refphone);
 
 
     @GET("user_json.php")
@@ -57,6 +64,18 @@ public interface ApiInterface {
     @FormUrlEncoded
     @POST("user_delete.php")
     Call<ResponseBody> deleteCustomers(@Field("id") String id);
+
+
+    @GET("user_update.php")
+    Call<ResponseBody> updateCustomers(@Query("id")String id, @Query("username") String username, @Query("address") String address, @Query("area") String area, @Query("email") String email,@Query("phone")String phone,@Query("reference")String reference,@Query("r_phone") String r_phone );
+
+
+    /*sales entry*/
+
+    @FormUrlEncoded
+    @POST("purchasing_user.php")
+    Call<ResponseBody> salesentry(@Field("cname") String cname, @Field("item") String item, @Field("quantity") int quantity, @Field("date") String date, @Field("s_amt") int s_amount, @Field("d_amt") int debit_amt, @Field("bal_amt") int bal_amt);
+
 
 
 }

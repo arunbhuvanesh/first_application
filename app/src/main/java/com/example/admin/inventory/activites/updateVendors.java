@@ -51,7 +51,7 @@ public class updateVendors extends AppCompatActivity implements mClickListener {
         address.setText(addr);
         String no = getIntent().getStringExtra("vendor phone");
         phone.setText(no);
-        String mailid=getIntent().getStringExtra("vendor mailid");
+        String mailid=getIntent().getStringExtra("vendor email");
         mail.setText(mailid);
 
         save.setOnClickListener(new View.OnClickListener() {
@@ -73,9 +73,11 @@ public class updateVendors extends AppCompatActivity implements mClickListener {
              public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                  if(response.isSuccessful()){
 
+
                      Toast.makeText(updateVendors.this,"Vendors Updated successfully!!",Toast.LENGTH_SHORT).show();
 
                      startActivity(new Intent(updateVendors.this,Show_vendorDetails.class));
+                     finish();
 
                  }
 

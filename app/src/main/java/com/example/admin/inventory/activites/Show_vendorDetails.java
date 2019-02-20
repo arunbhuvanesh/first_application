@@ -3,6 +3,7 @@ package com.example.admin.inventory.activites;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.view.MenuItemCompat;
@@ -18,12 +19,14 @@ import android.view.View;
 import android.widget.Toast;
 import android.support.v7.widget.SearchView;
 
+import com.daimajia.swipe.util.Attributes;
 import com.example.admin.inventory.R;
 import com.example.admin.inventory.adapter.mClickListener;
 import com.example.admin.inventory.adapter.vendorAdapter;
 import com.example.admin.inventory.model.Vendors;
 import com.example.admin.inventory.remote.ApiClient;
 import com.example.admin.inventory.remote.ApiInterface;
+import com.facebook.shimmer.ShimmerFrameLayout;
 
 
 import java.util.ArrayList;
@@ -37,6 +40,7 @@ import retrofit2.Response;
 
 public class Show_vendorDetails extends AppCompatActivity implements mClickListener, SearchView.OnQueryTextListener {
     private RecyclerView recyclerView;
+    private ShimmerFrameLayout shimmerFrameLayout;
     private vendorAdapter adapter;
     ApiInterface apiInterface;
     private List<Vendors> vendorsList;
@@ -46,6 +50,7 @@ public class Show_vendorDetails extends AppCompatActivity implements mClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_vendor_details);
+        shimmerFrameLayout=findViewById(R.id.shimmerview);
 
 
         apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
@@ -103,7 +108,23 @@ public class Show_vendorDetails extends AppCompatActivity implements mClickListe
                         alertDialog.show();
                     }
                 });
+                adapter.setMode(Attributes.Mode.Single);
+                shimmerFrameLayout.stopShimmer();
+                shimmerFrameLayout.setVisibility(View.GONE);
+                recyclerView.setVisibility(View.VISIBLE);
                 recyclerView.setAdapter(adapter);
+                recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+                    @Override
+                    public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                        super.onScrollStateChanged(recyclerView, newState);
+                    }
+
+                    @Override
+                    public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                        super.onScrolled(recyclerView, dx, dy);
+                    }
+                });
+
             }
 
             @Override
@@ -193,5 +214,22 @@ public class Show_vendorDetails extends AppCompatActivity implements mClickListe
         }
         adapter.updateList(newList);
         return true;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        shimmerFrameLayout.startShimmer();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        shimmerFrameLayout.stopShimmer();
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(Show_vendorDetails.this,HomeActivity.class));
     }
 }

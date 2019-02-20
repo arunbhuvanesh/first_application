@@ -25,6 +25,7 @@ import com.example.admin.inventory.model.Customers;
 import com.example.admin.inventory.model.Vendors;
 import com.example.admin.inventory.remote.ApiClient;
 import com.example.admin.inventory.remote.ApiInterface;
+import com.facebook.shimmer.ShimmerFrameLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +38,7 @@ import retrofit2.Response;
 public class show_Userdetails extends AppCompatActivity implements SearchView.OnQueryTextListener,mClickListener {
     ApiInterface apiInterface;
     private RecyclerView recyclerView;
+    private ShimmerFrameLayout shimmerFrameLayout;
     private customerAdapter adapter;
     private List<Customers> customersList;
     private String customerId="";
@@ -45,6 +47,7 @@ public class show_Userdetails extends AppCompatActivity implements SearchView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show__userdetails);
+        shimmerFrameLayout=findViewById(R.id.shimmerview);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -105,6 +108,9 @@ public class show_Userdetails extends AppCompatActivity implements SearchView.On
                     }
                 });
                 adapter.setMode(Attributes.Mode.Single);
+                shimmerFrameLayout.stopShimmer();
+                shimmerFrameLayout.setVisibility(View.GONE);
+                recyclerView.setVisibility(View.VISIBLE);
                 recyclerView.setAdapter(adapter);
                 recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
                     @Override
@@ -182,5 +188,22 @@ public class show_Userdetails extends AppCompatActivity implements SearchView.On
     @Override
     public void onClick(String id) {
 
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        shimmerFrameLayout.startShimmer();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        shimmerFrameLayout.stopShimmer();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(show_Userdetails.this,HomeActivity.class));
     }
 }

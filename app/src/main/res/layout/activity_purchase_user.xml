@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:theme="@style/Theme.AppCompat.NoActionBar"
     tools:context=".activites.PurchaseUserActivity">
 
     <LinearLayout
@@ -27,7 +26,6 @@
             android:id="@+id/cname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColorHint="@color/hint"
             android:layout_marginRight="5dp"
             android:hint="Customer name" />
 
@@ -44,8 +42,6 @@
             android:id="@+id/item"
             android:layout_marginLeft="35dp"
             android:layout_marginBottom="5dp"
-            android:entries="@array/item_array"
-            android:prompt="@string/Item_list"
             android:layout_width="250dp"
             android:layout_height="40dp"></Spinner>
 
@@ -62,7 +58,6 @@
             android:id="@+id/quantity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColorHint="@color/hint"
             android:layout_marginRight="5dp"
             android:hint="Sales Quantity" />
 
@@ -97,7 +92,6 @@
             android:id="@+id/salesprice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColorHint="@color/hint"
             android:layout_marginRight="5dp"
             android:inputType="numberDecimal"
             android:hint="Sales Amount" />
@@ -117,8 +111,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="5dp"
             android:inputType="numberDecimal"
-            android:hint="Debit Amount"
-            android:textColorHint="@color/hint"/>
+            android:hint="Debit Amount"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -135,7 +128,6 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="5dp"
             android:inputType="numberDecimal"
-            android:textColorHint="@color/hint"
             android:clickable="true"
             android:hint="Balance" />
 

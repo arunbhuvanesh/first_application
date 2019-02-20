@@ -16,4 +16,8 @@
         <item>Seeraga Samba</item>
     </string-array>
     <string name="title_activity_show__userdetails">Show_Userdetails</string>
+    <string name="purchaseuserActivity">Sales Entry</string>
+    <string name="update_Vendor">Update Vendor</string>
+    <string name="addVendorActivity">Add Vendor</string>
+    <string name="purchaseEntry">Purchase Entry</string>
 </resources>

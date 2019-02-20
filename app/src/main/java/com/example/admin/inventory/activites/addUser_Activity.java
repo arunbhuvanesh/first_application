@@ -30,7 +30,7 @@ import retrofit2.Response;
 public class addUser_Activity extends AppCompatActivity {
     Button save;
     ImageView imageView;
-    EditText name,address,area,email,phonenumber,reference;
+    EditText name,address,area,email,phonenumber,reference,rphone;
     ApiInterface apiInterface;
     private RecyclerView recyclerView;
     private customerAdapter adapter;
@@ -47,6 +47,7 @@ public class addUser_Activity extends AppCompatActivity {
         email=findViewById(R.id.email);
         phonenumber=findViewById(R.id.phone);
         reference=findViewById(R.id.reference);
+        rphone=findViewById(R.id.Refphone);
         imageView=findViewById(R.id.userimage);
 
 
@@ -65,6 +66,7 @@ public class addUser_Activity extends AppCompatActivity {
                 String mail=email.getText().toString();
                 String phone = phonenumber.getText().toString();
                 String ref = reference.getText().toString();
+                String refphone = rphone.getText().toString();
 
 
                 try {
@@ -86,7 +88,7 @@ public class addUser_Activity extends AppCompatActivity {
                         phonenumber.setError("Phonenumber required");
                         phonenumber.requestFocus();
                     }
-                    else if (phone.length()<10){
+                    else if (phone.length()<10&&phone.length()>10){
                         phonenumber.setError("Enter valid Number");
                         phonenumber.requestFocus();
                     }
@@ -94,8 +96,11 @@ public class addUser_Activity extends AppCompatActivity {
                         reference.setError("its must");
                         reference.requestFocus();
                     }
+                    else if (refphone.length()<10&&refphone.length()>10){
+
+                    }
                     else {
-                        addcustomer(username,addr,areaa,mail,phone,ref);
+                        addcustomer(username,addr,areaa,mail,phone,ref,refphone);
                     }
                         //startActivity(new Intent(addUser_Activity.this, HomeActivity.class));
                 }catch (Exception e){e.getStackTrace();}
@@ -112,14 +117,15 @@ public class addUser_Activity extends AppCompatActivity {
 
     }*/
 
-    private void addcustomer(String username, String addr, String areaa, String mail, String phone, String ref) {
-        Call<ResponseBody> call=apiInterface.addCustomers(username,addr,areaa,mail,phone,ref);
+    private void addcustomer(String username, String addr, String areaa, String mail, String phone, String ref,String refphone) {
+        Call<ResponseBody> call=apiInterface.addCustomers(username,addr,areaa,mail,phone,ref,refphone);
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 if(response.isSuccessful()){
                     Toast.makeText(getApplicationContext(),"Customer added successfully",Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(addUser_Activity.this,show_Userdetails.class));
+                    finish();
 
                 }
             }

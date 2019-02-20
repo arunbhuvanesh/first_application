@@ -68,6 +68,7 @@ public class HomeActivity extends AppCompatActivity {
                         try {
                             HomeActivity.this.finish();
                             finishAffinity();
+
                         } catch (Exception er) {
                             er.printStackTrace();
                         }
@@ -76,4 +77,5 @@ public class HomeActivity extends AppCompatActivity {
                 .setNegativeButton("No", null)
                 .show();
     }
+
 }
