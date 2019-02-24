@@ -73,10 +73,10 @@ public class show_Userdetails extends AppCompatActivity implements SearchView.On
 
     }
     private void loadCustomers() {
-        Call<List<Customers>> call=apiInterface.getCustomerEntries();
-        call.enqueue(new Callback<List<Customers>>() {
+        Call<ArrayList<Customers>> call=apiInterface.getCustomerEntries();
+        call.enqueue(new Callback<ArrayList<Customers>>() {
             @Override
-            public void onResponse(Call<List<Customers>> call, Response<List<Customers>> response) {
+            public void onResponse(Call<ArrayList<Customers>> call, Response<ArrayList<Customers>> response) {
 
                 customersList=response.body();
                 if(customersList.isEmpty()){
@@ -127,7 +127,7 @@ public class show_Userdetails extends AppCompatActivity implements SearchView.On
             }
 
             @Override
-            public void onFailure(Call<List<Customers>> call, Throwable t) {
+            public void onFailure(Call<ArrayList<Customers>> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), "" + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });

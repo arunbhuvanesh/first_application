@@ -12,7 +12,7 @@ import android.widget.Toast;
 import com.example.admin.inventory.R;
 
 public class HomeActivity extends AppCompatActivity {
-    CardView cv1,cv2,cv3,cv4,cv5;
+    CardView cv1,cv2,cv3,cv4,cv5,cv6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +23,7 @@ public class HomeActivity extends AppCompatActivity {
         cv3=findViewById(R.id.purchaseUser);
         cv4=findViewById(R.id.addVendor);
         cv5=findViewById(R.id.purchaseEntry);
+        cv6=findViewById(R.id.total_stocks);
         cv1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,6 +53,12 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(HomeActivity.this,PurchaseEntry.class));
+            }
+        });
+        cv6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomeActivity.this,Total_quantity.class));
             }
         });
 

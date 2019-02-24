@@ -81,10 +81,10 @@ public class Show_vendorDetails extends AppCompatActivity implements mClickListe
     }
 
     private void getVendors() {
-        Call<List<Vendors>> call = apiInterface.getUsers();
-        call.enqueue(new Callback<List<Vendors>>() {
+        Call<ArrayList<Vendors>> call = apiInterface.getUsers();
+        call.enqueue(new Callback<ArrayList<Vendors>>() {
             @Override
-            public void onResponse(Call<List<Vendors>> call, Response<List<Vendors>> response) {
+            public void onResponse(Call<ArrayList<Vendors>> call, Response<ArrayList<Vendors>> response) {
                 vendorsList = response.body();
                 Collections.sort(vendorsList, Vendors.BY_ALPHABETICAL);
                 adapter = new vendorAdapter(Show_vendorDetails.this, vendorsList, new mClickListener() {
@@ -128,7 +128,7 @@ public class Show_vendorDetails extends AppCompatActivity implements mClickListe
             }
 
             @Override
-            public void onFailure(Call<List<Vendors>> call, Throwable t) {
+            public void onFailure(Call<ArrayList<Vendors>> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), "" + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });

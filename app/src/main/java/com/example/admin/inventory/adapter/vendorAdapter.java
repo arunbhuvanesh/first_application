@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.daimajia.swipe.SwipeLayout;
 import com.daimajia.swipe.adapters.RecyclerSwipeAdapter;
 import com.example.admin.inventory.R;
+import com.example.admin.inventory.activites.Particular_Vendor;
 import com.example.admin.inventory.activites.updateVendors;
 import com.example.admin.inventory.model.Vendors;
 import com.example.admin.inventory.remote.ApiInterface;
@@ -47,12 +48,7 @@ public class vendorAdapter extends RecyclerSwipeAdapter<vendorAdapter.vendorView
     public void onBindViewHolder(@NonNull vendorViewHolder userViewHolder, final int i) {
 
         final Vendors vendors = vendorsList.get(i);
-userViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-        Toast.makeText(context,"vendor id:"+vendors.getVCompany(),Toast.LENGTH_SHORT).show();
-    }
-});
+
         userViewHolder.name.setText(vendors.getVName());
         userViewHolder.cname.setText(vendors.getVCompany());
         userViewHolder.address.setText(vendors.getVAddress());
@@ -97,7 +93,15 @@ userViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
 
             }
         });
-
+        userViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent editpintent=new Intent(context, Particular_Vendor.class);
+                editpintent.putExtra("vendor id",vendors.getId());
+                Toast.makeText(context,"vendor id:"+vendors.getId(),Toast.LENGTH_SHORT).show();
+                context.startActivity(editpintent);
+            }
+        });
 
         userViewHolder.delete.setOnClickListener(new View.OnClickListener() {
             @Override

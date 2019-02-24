@@ -4,40 +4,40 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class PurchaseEntry {
-    @SerializedName("p_id")
+    @SerializedName("id")
     @Expose
-    private String pId;
+    private String id;
     @SerializedName("product_name")
     @Expose
     private String productName;
-    @SerializedName("item")
+    @SerializedName("item_id")
     @Expose
-    private String item;
-    @SerializedName("vendor_name")
+    private String itemId;
+    @SerializedName("v_id")
     @Expose
-    private String vendorName;
+    private String vId;
     @SerializedName("quantity")
     @Expose
     private String quantity;
     @SerializedName("date")
     @Expose
     private String date;
-    @SerializedName("p_amount")
+    @SerializedName("p_amt")
     @Expose
-    private String pAmount;
-    @SerializedName("debit_amt")
+    private String pAmt;
+    @SerializedName("d_amt")
     @Expose
-    private String debitAmt;
-    @SerializedName("bal_amt")
+    private String dAmt;
+    @SerializedName("b_amt")
     @Expose
-    private String balAmt;
+    private String bAmt;
 
-    public String getPId() {
-        return pId;
+    public String getId() {
+        return id;
     }
 
-    public void setPId(String pId) {
-        this.pId = pId;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getProductName() {
@@ -48,20 +48,20 @@ public class PurchaseEntry {
         this.productName = productName;
     }
 
-    public String getItem() {
-        return item;
+    public String getItemId() {
+        return itemId;
     }
 
-    public void setItem(String item) {
-        this.item = item;
+    public void setItemId(String itemId) {
+        this.itemId = itemId;
     }
 
-    public String getVendorName() {
-        return vendorName;
+    public String getVId() {
+        return vId;
     }
 
-    public void setVendorName(String vendorName) {
-        this.vendorName = vendorName;
+    public void setVId(String vId) {
+        this.vId = vId;
     }
 
     public String getQuantity() {
@@ -80,25 +80,27 @@ public class PurchaseEntry {
         this.date = date;
     }
 
-    public String getPAmount() {
-        return pAmount;
+    public String getPAmt() {
+        return pAmt;
     }
 
-    public void setPAmount(String pAmount) {
-        this.pAmount = pAmount;
+    public void setPAmt(String pAmt) {
+        this.pAmt = pAmt;
     }
 
-    public String getDebitAmt() {
-        return debitAmt;
+    public String getDAmt() {
+        return dAmt;
     }
 
-    public void setDebitAmt(String debitAmt) {
-        this.debitAmt = debitAmt;
+    public void setDAmt(String dAmt) {
+        this.dAmt = dAmt;
     }
 
-    public String getBalAmt() { return balAmt; }
+    public String getBAmt() {
+        return bAmt;
+    }
 
-    public void setBalAmt(String balAmt) {
-        this.balAmt = balAmt;
+    public void setBAmt(String bAmt) {
+        this.bAmt = bAmt;
     }
 }

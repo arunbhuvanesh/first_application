@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="20dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:id="@+id/vname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_person"
+                android:drawablePadding="10dp"
+                android:drawableTint="#000000"
+                android:paddingTop="1dp"
+                android:paddingBottom="1dp"
+                android:text="arun"
+                android:textAllCaps="false"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/itemname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_item_tag"
+                android:layout_below="@id/vname"
+                android:drawablePadding="10dp"
+                android:layout_marginBottom="5dp"
+                android:drawableTint="#000000"
+                android:paddingBottom="1dp"
+                android:text="Ir20"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+            <TextView
+                android:id="@+id/quantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/itemname"
+                android:drawableLeft="@drawable/ic_quantity_tag"
+                android:drawablePadding="10dp"
+                android:drawableTint="#000000"
+                android:paddingBottom="1dp"
+                android:text="20"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_phone"
+                android:layout_toRightOf="@id/vname"
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="120dp"
+                android:drawablePadding="10dp"
+                android:drawableTint="#000000"
+                android:text="12/2/2019"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+            <TextView
+                android:id="@+id/pamt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_money_tag"
+                android:drawablePadding="10dp"
+                android:layout_below="@id/quantity"
+                android:layout_marginBottom="5dp"
+                android:drawableTint="#000000"
+                android:text="100000"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+            <TextView
+                android:id="@+id/damt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_money_tag"
+                android:drawablePadding="10dp"
+                android:layout_toRightOf="@id/pamt"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="78dp"
+                android:layout_marginBottom="5dp"
+                android:drawableTint="#000000"
+                android:text="100000"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+            <TextView
+                android:id="@+id/bamt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_money_tag"
+                android:drawablePadding="10dp"
+                android:layout_toRightOf="@id/damt"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="78dp"
+                android:layout_marginBottom="5dp"
+                android:drawableTint="#ff0000"
+                android:text="100000"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+
+        </RelativeLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+
+
+</LinearLayout>

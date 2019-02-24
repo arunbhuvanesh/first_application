@@ -58,12 +58,12 @@
             android:textSize="14dp"
             android:textStyle="bold" />
 
-        <android.support.v7.widget.AppCompatEditText
+        <Spinner
         android:id="@+id/ven_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="5dp"
-        android:hint="Vendor name" />
+            android:layout_marginLeft="35dp"
+            android:layout_marginBottom="5dp"
+            android:layout_width="250dp"
+            android:layout_height="40dp"></Spinner>
 
         <TextView
             android:layout_width="wrap_content"

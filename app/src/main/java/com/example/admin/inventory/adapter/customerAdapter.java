@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.daimajia.swipe.SwipeLayout;
 import com.daimajia.swipe.adapters.RecyclerSwipeAdapter;
 import com.example.admin.inventory.R;
+import com.example.admin.inventory.activites.Particular_Vendor;
 import com.example.admin.inventory.activites.updateUsers;
 import com.example.admin.inventory.model.Customers;
 import com.example.admin.inventory.remote.ApiInterface;
@@ -118,6 +119,15 @@ public class customerAdapter extends RecyclerSwipeAdapter<customerAdapter.custom
 
             }
         });
+        customerViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent editpintent=new Intent(context, Particular_Vendor.class);
+                editpintent.putExtra("customer id",customers.getId());
+                Toast.makeText(context,"customer id:"+customers.getId(),Toast.LENGTH_SHORT).show();
+                context.startActivity(editpintent);
+            }
+        });
 
 
     }
@@ -158,6 +168,7 @@ public class customerAdapter extends RecyclerSwipeAdapter<customerAdapter.custom
             aSwitch=itemView.findViewById(R.id.btnLocation);
             delete.setOnClickListener(this);
             aSwitch.setOnClickListener(this);
+            itemView.setOnClickListener(this);
         }
 
         @Override

@@ -4,7 +4,9 @@ package com.example.admin.inventory.remote;
 import com.example.admin.inventory.model.Admin;
 import com.example.admin.inventory.model.Customers;
 import com.example.admin.inventory.model.Itemlist;
+import com.example.admin.inventory.model.ParticularVendor;
 import com.example.admin.inventory.model.PurchaseEntry;
+import com.example.admin.inventory.model.Quantity;
 import com.example.admin.inventory.model.Vendors;
 
 import java.util.ArrayList;
@@ -23,24 +25,27 @@ public interface ApiInterface {
 
     /*admin authentication*/
     @GET("login.php")
-    Call<Admin> login(@Query("username")String username, @Query("password")String password);
+    Call<Admin> login(@Query("username") String username, @Query("password") String password);
 
 
     /*vendor implemnetation*/
 
     @FormUrlEncoded
     @POST("addvendors.php")
-    Call<ResponseBody> addvendor(@Field("v_name") String name, @Field("v_company") String company, @Field("v_address") String address, @Field("v_phone") String phone,@Field("v_email")String mail);
+    Call<ResponseBody> addvendor(@Field("v_name") String name, @Field("v_company") String company, @Field("v_address") String address, @Field("v_phone") String phone, @Field("v_email") String mail);
 
     @GET("jsonencode.php")
-    Call<List<Vendors>> getUsers();
+    Call<ArrayList<Vendors>> getUsers();
 
     @GET("vendor_update.php")
-    Call<ResponseBody> updatevendor(@Query("id") String id, @Query("v_name") String name, @Query("v_company") String company, @Query("v_address") String address, @Query("v_phone") String phone,@Query("v_email")String mail);
+    Call<ResponseBody> updatevendor(@Query("id") String id, @Query("v_name") String name, @Query("v_company") String company, @Query("v_address") String address, @Query("v_phone") String phone, @Query("v_email") String mail);
 
     @FormUrlEncoded
     @POST("vendor_delete.php")
     Call<ResponseBody> deleteVendor(@Field("id") String id);
+
+    @GET("particular_list.php")
+    Call<ArrayList<ParticularVendor>> getParticularVendor(@Query("id") String id);
 
     /*puchase entry*/
 
@@ -55,11 +60,11 @@ public interface ApiInterface {
     /*adding customers implementation*/
     @FormUrlEncoded
     @POST("adduser.php")
-    Call<ResponseBody> addCustomers(@Field("username")String username,@Field("address")String address,@Field("area") String area,@Field("email")String email,@Field("phone")String phone,@Field("reference")String ref,@Field("r_phone")String refphone);
+    Call<ResponseBody> addCustomers(@Field("username") String username, @Field("address") String address, @Field("area") String area, @Field("email") String email, @Field("phone") String phone, @Field("reference") String ref, @Field("r_phone") String refphone);
 
 
     @GET("user_json.php")
-    Call<List<Customers>> getCustomerEntries();
+    Call<ArrayList<Customers>> getCustomerEntries();
 
     @FormUrlEncoded
     @POST("user_delete.php")
@@ -67,7 +72,7 @@ public interface ApiInterface {
 
 
     @GET("user_update.php")
-    Call<ResponseBody> updateCustomers(@Query("id")String id, @Query("username") String username, @Query("address") String address, @Query("area") String area, @Query("email") String email,@Query("phone")String phone,@Query("reference")String reference,@Query("r_phone") String r_phone );
+    Call<ResponseBody> updateCustomers(@Query("id") String id, @Query("username") String username, @Query("address") String address, @Query("area") String area, @Query("email") String email, @Query("phone") String phone, @Query("reference") String reference, @Query("r_phone") String r_phone);
 
 
     /*sales entry*/
@@ -76,6 +81,13 @@ public interface ApiInterface {
     @POST("purchasing_user.php")
     Call<ResponseBody> salesentry(@Field("cname") String cname, @Field("item") String item, @Field("quantity") int quantity, @Field("date") String date, @Field("s_amt") int s_amount, @Field("d_amt") int debit_amt, @Field("bal_amt") int bal_amt);
 
+    /*total quantity*/
+    @GET("totalquantity.php")
+    Call<ArrayList<Quantity>> getTotalStock();
+
+    /*particular stock quantity*/
+    @GET("particular_stock_quantity.php")
+    Call<ArrayList<Quantity>> getstock(@Query("id") String id);
 
 
 }

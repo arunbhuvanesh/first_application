@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -31,18 +32,20 @@ import retrofit2.Response;
 
 public class PurchaseEntry extends AppCompatActivity {
     EditText et_productname, et_quantity, et_date, et_price, et_debit, et_balance;
-    Spinner item, vendor;
+    Spinner item,vendor;
+
     private ArrayList<Itemlist> spinneritems;
-    //private ArrayList<Vendors> vendorslist;
+    private ArrayList<Vendors> vendorslist=new ArrayList<>();
     List<String> lang = new ArrayList<String>();
     List<String> uId = new ArrayList<String>();
 
-//    List<String> vname = new ArrayList<String>();
-//    List<String> vId = new ArrayList<String>();
+    List<String> vname = new ArrayList<String>();
+    List<String> vId = new ArrayList<String>();
     //spinnerAdapter itemAdapter;
     Button purchasesave;
     DatePickerDialog datePickerDialog;
     ApiInterface apiInterface;
+    int sub_id,ven_id;
 
 
     @Override
@@ -60,22 +63,7 @@ public class PurchaseEntry extends AppCompatActivity {
         purchasesave = findViewById(R.id.puchaseentry);
         //List<String> list = new ArrayList<String>();
 
-/*        final Calendar calendar=Calendar.getInstance();
-        final DatePickerDialog.OnDateSetListener date=new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                calendar.set(Calendar.YEAR,year);
-                calendar.set(Calendar.MONTH,month);
-                calendar.set(Calendar.DAY_OF_MONTH,dayOfMonth);
-                updateLabel();
-            }
-        };
-        et_date.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new DatePickerDialog(PurchaseEntry.this,date,calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH)).show();
-            }
-        });*/
+
 
         et_date.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,6 +85,8 @@ public class PurchaseEntry extends AppCompatActivity {
 
         //api calling
         apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+
+
         /*spinner values get */
         lang.add("Select Items");
         uId.add("0");
@@ -108,7 +98,7 @@ public class PurchaseEntry extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 //String selectlang = item.getSelectedItem().toString();
-                int sub_id = Integer.parseInt(uId.get(position));
+                sub_id = Integer.parseInt(uId.get(position));
                 Toast.makeText(getApplicationContext(), "item id is:" + sub_id, Toast.LENGTH_SHORT).show();
             }
 
@@ -118,10 +108,8 @@ public class PurchaseEntry extends AppCompatActivity {
             }
         });
 
-/*
 
-        */
-/*vendor name load to spinner*//*
+/*vendor name load to spinner*/
 
         vname.add("Select Vendors");
         vId.add("0");
@@ -131,7 +119,7 @@ public class PurchaseEntry extends AppCompatActivity {
         vendor.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        int ven_id=Integer.parseInt(vId.get(position));
+         ven_id=Integer.parseInt(vId.get(position));
                 Toast.makeText(getApplicationContext(), "item id is:" + ven_id, Toast.LENGTH_SHORT).show();
             }
 
@@ -141,17 +129,16 @@ public class PurchaseEntry extends AppCompatActivity {
 
             }
         });
-*/
 
         loadJSON();
-        /*loadVendors();*/
+        loadJSONVendors();
 
         purchasesave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String p_name = et_productname.getText().toString();
-                String i = item.getSelectedItem().toString();
-                String v_name = vendor.getSelectedItem().toString();
+                String i = String.valueOf(sub_id);
+                String v_name = String.valueOf(ven_id);
                 int quans = Integer.parseInt(et_quantity.getText().toString());
                 String dt = et_date.getText().toString();
                 int payamt = Integer.parseInt(et_price.getText().toString());
@@ -168,8 +155,41 @@ public class PurchaseEntry extends AppCompatActivity {
         });
     }
 
-    /*private void loadVendors() {
-    }*/
+    private void loadJSONVendors() {
+        Call<ArrayList<Vendors>> call=apiInterface.getUsers();
+        call.enqueue(new Callback<ArrayList<Vendors>>() {
+            @Override
+            public void onResponse(Call<ArrayList<Vendors>> call, Response<ArrayList<Vendors>> response) {
+                try {
+                    vendorslist = response.body();
+                    Log.d("vendor response", "working");
+
+                }catch (Exception e){
+                    e.printStackTrace();
+                    Log.d("vendor response", "not working");
+                }
+                try{
+                    int dy = vendorslist.size();
+                    Log.d("vendor response", "data");
+                    for (int y=0;y<dy;y++)
+                    {
+                        vname.add(vendorslist.get(y).getVName());
+                        vId.add(vendorslist.get(y).getId());
+                    }
+                }catch (Exception e){e.printStackTrace();
+                    Log.d("vendor response", " no data");}
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<Vendors>> call, Throwable t) {
+                t.printStackTrace();
+                Log.d("response", "not connect");
+            }
+        });
+
+    }
+
+
     /*spinner get the values*/
 
 
