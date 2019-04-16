@@ -4,8 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/textview"
+    android:id="@+id/container"
+    android:background="@drawable/gradient_1"
     tools:context=".activites.MainActivity">
+
+
 
 
     <LinearLayout
@@ -19,92 +22,133 @@
         android:layout_marginBottom="100dp"
         android:background="@drawable/linear_layout_bg"
         android:orientation="vertical">
+        <ImageView
+            android:id="@+id/log_icon"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/user_icon"
+            android:scaleType="centerCrop"
+           android:layout_marginLeft="105dp"
+            android:layout_marginBottom="3dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp" />
+
        <TextView
-           android:text="Inventory Management"
-           android:textSize="18dp"
+           android:id="@+id/apptitle"
+           android:text="Ricemerchant Inventory "
+           android:textSize="20dp"
            android:textAlignment="center"
            android:layout_gravity="center"
-           android:textColor="@color/textview"
+           android:textColor="@color/login_App_title"
           android:textColorHighlight="@color/hint"
-           android:textStyle="bold"
-           android:padding="10dp"
+           android:layout_marginBottom="0dp"
+           android:padding="5dp"
+           android:fontFamily="@font/lato_black"
            android:textAppearance="@style/Base.TextAppearance.AppCompat.Light.Widget.PopupMenu.Large"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content" />
 
 
         <TextView
+            android:id="@+id/sign"
             android:layout_width="wrap_content"
-            android:layout_height="35dp"
+            android:layout_height="24dp"
             android:layout_marginTop="0dp"
-            android:fontFamily="sans-serif"
             android:paddingLeft="14dp"
-            android:text="Sign in Here"
-            android:textSize="16dp"
-            android:textStyle="bold" />
+            android:text="Sign In"
+            android:fontFamily="@font/lato_regular"
+            android:layout_marginBottom="10dp"
+           android:layout_marginLeft="100dp"
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp">
+            android:textColor="@color/login_App_title"
+            android:textSize="16dp"/>
+
+
 
             <android.support.v7.widget.AppCompatEditText
                 android:id="@+id/username"
+                style="@style/CustomEdittextStyle"
                 android:layout_width="230dp"
                 android:layout_height="30dp"
-              android:layout_marginLeft="25dp"
+                android:layout_marginLeft="25dp"
                 android:layout_marginRight="15dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="15dp"
                 android:background="@drawable/rounded_edittext"
-                android:hint="admin"
+                android:hint="Admin"
+                android:fontFamily="@font/lato_regular"
                 android:inputType="text"
-                android:paddingLeft="5dp" />
-        </android.support.design.widget.TextInputLayout>
+                android:paddingLeft="5dp"
+                android:singleLine="true"
+                android:textColorHint="@color/hint" />
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginBottom="8dp">
+
+
 
             <android.support.v7.widget.AppCompatEditText
                 android:id="@+id/password"
                 android:layout_width="230dp"
-                android:layout_height="33dp"
+                android:layout_height="30dp"
                 android:layout_marginLeft="25dp"
-                android:layout_marginBottom="12dp"
+                android:layout_marginBottom="25dp"
                 android:background="@drawable/rounded_edittext"
-                android:hint="Password:1234"
-                android:inputType="text"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:singleLine="true"
+                android:fontFamily="@font/lato_regular"
+                style="@style/CustomEdittextStyle"
+                android:textColorHint="@color/hint"
                 android:paddingLeft="5dp" />
-        </android.support.design.widget.TextInputLayout>
+
+        <TextView
+            android:id="@+id/errorText"
+            android:layout_marginLeft="25dp"
+            android:layout_marginBottom="5dp"
+            android:visibility="gone"
+            android:textColor="@android:color/holo_red_light"
+            android:text="Enter Details*"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
 
         <Button
             android:id="@+id/bt_login"
             android:layout_width="230dp"
-            android:layout_height="34dp"
+            android:layout_height="35dp"
             android:layout_marginLeft="25dp"
-            android:layout_marginBottom="15dp"
+            android:layout_marginBottom="40dp"
             android:background="@drawable/rounded_button"
             android:text="Login"
             android:textAllCaps="false"
             android:textColor="#ffffff"
             android:textSize="17dp" />
 
+
+
         <TextView
             android:id="@+id/forget"
             android:text="Forget password?"
+            android:textColor="@color/login_App_title"
             android:layout_marginLeft="84dp"
             android:layout_marginBottom="10dp"
+            android:fontFamily="@font/lato_regular"
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-
     </LinearLayout>
-  <!--  <ProgressBar
-        android:layout_centerInParent="true"
+
+    <com.wang.avi.AVLoadingIndicatorView
         android:id="@+id/progressbar"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:progressDrawable="@drawable/progressbar"/>-->
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        style="@style/AVLoadingIndicatorView.Small"
+        app:indicatorName="BallZigZagIndicator"
+        app:indicatorColor="@color/spinner_color"
+        android:layout_marginTop="490dp"
+      android:layout_centerHorizontal="true"
+        android:visibility="invisible" />
+
+
 
 
 </RelativeLayout>

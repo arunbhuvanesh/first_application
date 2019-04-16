@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activites.Particular_customer_list">
+
+
+    <ProgressBar
+        android:id="@+id/progressbar1"
+        android:visibility="visible"
+        android:layout_centerInParent="true"
+        android:layout_width="50dp"
+        android:layout_height="50dp" />
+
+
+
+    <!--<com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="">
+
+            <include layout="@layout/placholder_user"/>
+            <include layout="@layout/placholder_user"/>
+            <include layout="@layout/placholder_user"/>
+            <include layout="@layout/placholder_user"/>
+            <include layout="@layout/placholder_user"/>
+            <include layout="@layout/placholder_user"/>
+            <include layout="@layout/placholder_user"/>
+        </LinearLayout>
+    </com.facebook.shimmer.ShimmerFrameLayout>-->
+
+    <RelativeLayout
+        android:id="@+id/relative1"
+        android:layout_width="match_parent"
+        android:layout_height="400dp">
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/srecyclerview"
+        android:background="#20000000"
+        android:visibility="invisible"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/id"
+        android:layout_width="2dp"
+        android:layout_height="2dp" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/relative2"
+        android:visibility="invisible"
+        android:padding="10dp"
+        android:elevation="@dimen/dimen_20dp"
+        android:layout_below="@id/relative1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:text="Outstanding Calculation:-"
+            android:fontFamily="@font/lato_black"
+            android:textColor="@color/colorPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/date"
+            style="@style/CustomEdittextStyle"
+            android:layout_width="145dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="5dp"
+            android:clickable="true"
+            android:cursorVisible="false"
+            android:drawableLeft="@drawable/ic_date"
+            android:drawableTint="@color/hint"
+            android:ems="10"
+            android:focusable="true"
+            android:focusableInTouchMode="false"
+            android:fontFamily="@font/lato_regular"
+            android:hint="Deposit Date"
+            android:visibility="visible"
+            android:inputType="date"
+            android:singleLine="true"
+            android:textColorHint="@color/hint" />
+
+        <EditText
+            android:id="@+id/amount"
+            android:inputType="number"
+            android:singleLine="true"
+            android:fontFamily="@font/lato_regular"
+            android:drawableLeft="@drawable/ic_money_tag"
+            android:drawablePadding="10dp"
+            android:hint="amount"
+            android:layout_marginLeft="5dp"
+            android:layout_below="@id/date"
+            android:layout_width="145dp"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tvout"
+            android:visibility="gone"
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/deposit"
+            android:text="12" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/outamtrecyclerview"
+            android:visibility="visible"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="150dp"
+            android:textAlignment="center"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"></android.support.v7.widget.RecyclerView>
+
+        <TextView
+            android:id="@+id/tvhdate"
+            android:layout_below="@id/outamtrecyclerview"
+            android:layout_marginLeft="150dp"
+            android:text="Last Pay Date  :"
+            android:visibility="gone"
+            android:fontFamily="@font/lato_regular"
+            android:textColor="@android:color/holo_red_light"
+            android:layout_marginBottom="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/hdate"
+            android:layout_toRightOf="@id/tvhdate"
+            android:text="2019-10-29"
+            android:layout_below="@id/outamtrecyclerview"
+            android:layout_marginLeft="5dp"
+            android:visibility="gone"
+            android:fontFamily="@font/lato_regular"
+            android:textColor="@android:color/background_dark"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tvhamt"
+            android:layout_below="@id/tvhdate"
+            android:layout_marginLeft="150dp"
+            android:text="Last Pay              :"
+            android:visibility="gone"
+            android:fontFamily="@font/lato_regular"
+            android:textColor="@android:color/holo_red_light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/hamt"
+            android:layout_toRightOf="@id/tvhamt"
+            android:text="2000"
+            android:visibility="gone"
+            android:layout_below="@id/outamtrecyclerview"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="5dp"
+            android:fontFamily="@font/lato_regular"
+            android:textColor="@android:color/background_dark"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content" />
+<Button
+    android:id="@+id/deposit"
+    android:text="deposit"
+    android:textColor="@android:color/white"
+    android:background="@drawable/rounded_button"
+    android:fontFamily="@font/lato_regular"
+    android:layout_centerHorizontal="true"
+    android:layout_below="@id/outamtrecyclerview"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="60dp"
+    android:layout_toRightOf="@id/amount"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
+
+        <ProgressBar
+            android:layout_below="@id/deposit"
+            android:visibility="gone"
+            android:id="@+id/progressbar"
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
+
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

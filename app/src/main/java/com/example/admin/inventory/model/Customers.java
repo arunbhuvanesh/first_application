@@ -25,6 +25,9 @@ public class Customers {
     @SerializedName("reference")
     @Expose
     private String reference;
+    @SerializedName("r_phone")
+    @Expose
+    private String r_phone;
 
     public String getId() {
         return id;
@@ -80,5 +83,13 @@ public class Customers {
 
     public void setReference(String reference) {
         this.reference = reference;
+    }
+
+    public String getR_phone() {
+        return r_phone;
+    }
+
+    public void setR_phone(String r_phone) {
+        this.r_phone = r_phone;
     }
 }

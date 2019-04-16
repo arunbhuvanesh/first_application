@@ -1,21 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <color name="colorPrimary">#bb0e2880</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorPrimary">#1d2671</color>
+    <color name="colorPrimaryDark">#181E4E</color>
     <color name="deeppurple">#7c4dff</color>
     <color name="green">#00bfa5</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#D2E91E63</color>
     <color name="darkblue">#23283a</color>
     <color name="testcolorblue">#152b38</color>
     <color name="pink">#fe104d</color>
     <color name="dblue">#3982d1</color>
     <!--used-->
-    <color name="hint">#b0000000</color>
+    <color name="hint">#88000000</color>
     <color name="white">#ffffff</color>
     <color name="textview">#dc0e2880</color>
     <color name="drawbleTint_black">#bb000000</color>
     <color name="sam_primary">#008577</color>
     <color name="background">#FF127C80</color>
+    <color name="placeholder_bg">#dddddd</color>
+    <color name="login_App_title">#F2F2F2</color>
+    <color name="home_title">#000000</color>
+
+    <color name="spinner_color">#F2F8F1EF</color>
+    <color name="rippleEffect">#CB5A66C5</color>
+    <color name="fab_color_res">#3F51B5</color>
+
+    <!--3F51B5-->
 
 
 </resources>

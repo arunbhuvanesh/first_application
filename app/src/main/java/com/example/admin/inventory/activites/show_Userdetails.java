@@ -3,6 +3,7 @@ package com.example.admin.inventory.activites;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -15,6 +16,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.daimajia.swipe.util.Attributes;
@@ -25,6 +27,7 @@ import com.example.admin.inventory.model.Customers;
 import com.example.admin.inventory.model.Vendors;
 import com.example.admin.inventory.remote.ApiClient;
 import com.example.admin.inventory.remote.ApiInterface;
+import com.facebook.shimmer.ShimmerFrameLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +40,9 @@ import retrofit2.Response;
 public class show_Userdetails extends AppCompatActivity implements SearchView.OnQueryTextListener,mClickListener {
     ApiInterface apiInterface;
     private RecyclerView recyclerView;
+    FloatingActionButton fab;
+//    private ShimmerFrameLayout shimmerFrameLayout;
+    ProgressBar progressBar;
     private customerAdapter adapter;
     private List<Customers> customersList;
     private String customerId="";
@@ -45,14 +51,20 @@ public class show_Userdetails extends AppCompatActivity implements SearchView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show__userdetails);
+       /* shimmerFrameLayout=findViewById(R.id.shimmerview);
+        shimmerFrameLayout.startShimmer();*/
+       progressBar=findViewById(R.id.progressbar);
+       progressBar.setMax(100);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         apiInterface=ApiClient.getApiClient().create(ApiInterface.class);
         init();
         loadCustomers();
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+         fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,17 +82,17 @@ public class show_Userdetails extends AppCompatActivity implements SearchView.On
 
     }
     private void loadCustomers() {
-        Call<List<Customers>> call=apiInterface.getCustomerEntries();
-        call.enqueue(new Callback<List<Customers>>() {
+        Call<ArrayList<Customers>> call=apiInterface.getCustomerEntries();
+        call.enqueue(new Callback<ArrayList<Customers>>() {
             @Override
-            public void onResponse(Call<List<Customers>> call, Response<List<Customers>> response) {
+            public void onResponse(Call<ArrayList<Customers>> call, Response<ArrayList<Customers>> response) {
 
                 customersList=response.body();
                 if(customersList.isEmpty()){
                     recyclerView.setVisibility(View.GONE);
 //                    tvEmptyTextView.setVisibility(View.VISIBLE);
                 }else{
-                    recyclerView.setVisibility(View.VISIBLE);
+//                    recyclerView.setVisibility(View.VISIBLE);
 //                    tvEmptyTextView.setVisibility(View.GONE);
                 }
                 adapter=new customerAdapter(show_Userdetails.this, customersList, new mClickListener() {
@@ -104,7 +116,19 @@ public class show_Userdetails extends AppCompatActivity implements SearchView.On
 
                     }
                 });
-                adapter.setMode(Attributes.Mode.Single);
+//                adapter.setMode(Attributes.Mode.Single);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        /*shimmerFrameLayout.stopShimmer();
+                        shimmerFrameLayout.setVisibility(View.GONE);*/
+                        progressBar.setVisibility(View.GONE);
+                        recyclerView.setVisibility(View.VISIBLE);
+
+                    }
+                },500);
+
+
                 recyclerView.setAdapter(adapter);
                 recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
                     @Override
@@ -115,13 +139,21 @@ public class show_Userdetails extends AppCompatActivity implements SearchView.On
                     @Override
                     public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                         super.onScrolled(recyclerView, dx, dy);
+                        if (dy>0&&fab.getVisibility()==View.VISIBLE)
+                        {
+                            fab.hide();
+                        }
+                        else if (dy<0&&fab.getVisibility()!= View.VISIBLE)
+                        {
+                            fab.show();
+                        }
                     }
                 });
 
             }
 
             @Override
-            public void onFailure(Call<List<Customers>> call, Throwable t) {
+            public void onFailure(Call<ArrayList<Customers>> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), "" + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
@@ -170,7 +202,7 @@ public class show_Userdetails extends AppCompatActivity implements SearchView.On
         List<Customers> newList=new ArrayList<>();
         for (Customers customers:customersList)
         {
-            if (customers.getId().toLowerCase().contains(userInput)||customers.getUsername().toLowerCase().contains(userInput)||customers.getPhone().toLowerCase().contains(userInput)||customers.getEmail().toLowerCase().contains(userInput)||customers.getArea().toLowerCase().contains(userInput)||customers.getAddress().toLowerCase().contains(userInput))
+            if (customers.getId().toLowerCase().contains(userInput)||customers.getUsername().toLowerCase().contains(userInput)||customers.getArea().toLowerCase().contains(userInput))
             {
                 newList.add(customers);
             }
@@ -182,5 +214,22 @@ public class show_Userdetails extends AppCompatActivity implements SearchView.On
     @Override
     public void onClick(String id) {
 
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+//        shimmerFrameLayout.stopShimmer();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+//        shimmerFrameLayout.stopShimmer();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(show_Userdetails.this,HomeActivity.class));
     }
 }

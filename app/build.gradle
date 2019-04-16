@@ -4,7 +4,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.example.admin.inventory"
-        minSdkVersion 17
+        minSdkVersion 15
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -31,9 +31,26 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.6.1'
     implementation 'com.android.support:recyclerview-v7:28.0.0'
     implementation 'com.android.support:cardview-v7:28.0.0'
-
+    implementation 'com.toptoche.searchablespinner:searchablespinnerlibrary:1.3.1'
+    /*Toast*/
+    implementation 'com.github.GrenderG:Toasty:1.4.1'
     /*slide view*/
-    implementation "com.daimajia.swipelayout:library:1.2.0@aar"
-
-
+    implementation 'com.daimajia.swipelayout:library:1.2.0@aar'
+    implementation 'com.facebook.shimmer:shimmer:0.4.0'
+    implementation 'com.wang.avi:library:2.1.3'
+    //Butterknife
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    //dexter permissions
+    implementation 'com.karumi:dexter:5.0.0'
+    // circular imageview
+    implementation 'com.mikhaellopez:circularimageview:3.2.0'
+    implementation 'com.github.yalantis:ucrop:2.2.2'
+    //Glide
+    implementation 'com.github.bumptech.glide:glide:4.7.1'
+    implementation 'com.github.bumptech.glide:annotations:4.7.1'
+    implementation('com.github.bumptech.glide:okhttp3-integration:4.0.0') {
+        exclude group: 'glide-parent'
+    }
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
 }

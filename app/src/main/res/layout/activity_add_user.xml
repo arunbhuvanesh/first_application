@@ -1,65 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:theme="@style/AppTheme"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="activites.addUser_Activity">
-
-    <LinearLayout
-        android:layout_marginTop="1dp"
+    android:padding="10dp"
+    android:theme="@style/AppTheme"
+    tools:context=".activites.addUser_Activity">
+    <RelativeLayout
         android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/imre"
+        android:layout_centerHorizontal="true"
+        android:layout_width="@dimen/toolbar_profile_width"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        tools:ignore="MissingConstraints">
 
-        <android.support.v7.widget.SearchView
-            android:id="@+id/searchview"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content">
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/img_profile"
+            android:layout_width="@dimen/toolbar_profile_width"
+            android:layout_height="@dimen/toolbar_profile_width"
+            android:layout_marginTop="@dimen/activity_padding"
+            android:layout_marginBottom="@dimen/activity_padding"
+            android:scaleType="centerInside"
+            android:foreground="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:src="@drawable/baseline_account_circle_black_48"
+            app:civ_border_color="@android:color/white"
+            app:civ_border_width="2dp" />
 
-        </android.support.v7.widget.SearchView>
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/img_plus"
+            android:layout_width="@dimen/ic_plus_width"
+            android:layout_height="@dimen/ic_plus_width"
+            android:layout_alignBottom="@id/img_profile"
+            android:foreground="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_plus"
+            app:civ_shadow="true"
+            app:civ_shadow_radius="1" />
 
-        <android.support.v7.widget.AppCompatButton
-            android:id="@+id/save"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:background="@drawable/rounded_button2"
-            android:text="Save"
-            android:textAllCaps="false" />
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/editprofile"
+            android:text="Edit Profile"
+            android:layout_below="@id/img_plus"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+            android:fontFamily="@font/lato_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
 
-    <LinearLayout
-        android:id="@+id/linear"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:orientation="vertical">
+
+
 
         <RelativeLayout
             android:id="@+id/re"
+            android:layout_below="@id/imre"
+            android:layout_marginTop="25dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints">
 
             <TextView
                 android:id="@+id/tv_user"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Customer Name"
+                android:fontFamily="@font/lato_bold"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                 android:textColor="@color/textview"
-                android:textSize="14dp"
+                android:textSize="@dimen/textviewsize"
+                android:layout_marginBottom="4dp"
                 android:textStyle="bold" />
+
             <EditText
                 android:id="@+id/user"
-                android:layout_width="210dp"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_user"
                 android:layout_marginBottom="10dp"
-                android:hint="User name" />
+                android:hint="Customer Name"
+                android:fontFamily="@font/muktamalar"
+                style="@style/CustomEdittextStyle"
+                android:textColorHint="@color/hint"
+                android:inputType="textPersonName"
+                android:maxLength="13"
+                android:singleLine="true" />
 
             <TextView
                 android:id="@+id/tv_address"
@@ -67,74 +99,91 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/user"
                 android:text="Address"
+                android:fontFamily="@font/lato_bold"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                 android:textColor="@color/textview"
-                android:textSize="14dp"
+                android:textSize="@dimen/textviewsize"
+                android:layout_marginBottom="4dp"
                 android:textStyle="bold" />
+
             <EditText
                 android:id="@+id/address"
-                android:layout_width="210dp"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_address"
-                android:layout_alignParentStart="true"
-                android:hint="Address" />
+                android:layout_marginTop="0dp"
+                android:hint="Address"
+                android:fontFamily="@font/lato_regular"
+                android:inputType="text"
+                style="@style/CustomEdittextStyle"
+                android:textColorHint="@color/hint"
+                android:maxLength="35"
+                android:singleLine="true" />
 
 
-            <android.support.v7.widget.AppCompatImageButton
-                android:id="@+id/userimage"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="54dp"
-                android:layout_marginLeft="210dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="27dp"
-                android:layout_toStartOf="@id/user"
-                />
 
             <TextView
                 android:id="@+id/tv_area"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Area"
                 android:layout_below="@id/address"
+                android:text="Area"
+                android:fontFamily="@font/lato_bold"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                 android:textColor="@color/textview"
-                android:textSize="14dp"
+                android:textSize="@dimen/textviewsize"
+                android:layout_marginBottom="4dp"
                 android:textStyle="bold" />
 
             <android.support.v7.widget.AppCompatEditText
                 android:id="@+id/area"
-                android:layout_below="@id/tv_area"
-                android:layout_width="match_parent"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:hint="Area" />
+                android:layout_below="@id/tv_area"
+                android:hint="Area"
+                android:fontFamily="@font/lato_regular"
+                android:inputType="text"
+                android:maxLength="6"
+                style="@style/CustomEdittextStyle"
+                android:textColorHint="@color/hint"
+                android:singleLine="true" />
+
             <TextView
                 android:id="@+id/tv_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/area"
                 android:text="Email"
+                android:fontFamily="@font/lato_bold"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                 android:textColor="@color/textview"
-                android:textSize="14dp"
+                android:textSize="@dimen/textviewsize"
+                android:layout_marginBottom="4dp"
                 android:textStyle="bold" />
+
             <android.support.v7.widget.AppCompatEditText
                 android:id="@+id/email"
-                android:layout_below="@id/tv_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Email" />
+                android:layout_below="@id/tv_email"
+                android:hint="Email"
+                android:fontFamily="@font/lato_regular"
+                android:inputType="textEmailAddress"
+                style="@style/CustomEdittextStyle"
+                android:textColorHint="@color/hint"
+                android:singleLine="true" />
+
             <TextView
                 android:id="@+id/tv_mobile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/email"
-                android:text="Mobile"
+                android:text="Mobile Number"
+                android:fontFamily="@font/lato_bold"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                 android:textColor="@color/textview"
-                android:textSize="14dp"
+                android:textSize="@dimen/textviewsize"
+                android:layout_marginBottom="4dp"
                 android:textStyle="bold" />
 
             <android.support.v7.widget.AppCompatEditText
@@ -142,33 +191,80 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_mobile"
-                android:hint="Phone number" />
+                android:hint="Mobile number"
+                android:fontFamily="@font/lato_regular"
+                android:inputType="phone"
+                style="@style/CustomEdittextStyle"
+                android:textColorHint="@color/hint"
+                android:singleLine="true" />
+
             <TextView
                 android:id="@+id/tv_ref"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/phone"
                 android:text="Reference"
+                android:fontFamily="@font/lato_bold"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                 android:textColor="@color/textview"
-                android:textSize="14dp"
+                android:textSize="@dimen/textviewsize"
+                android:layout_marginBottom="4dp"
                 android:textStyle="bold" />
 
             <android.support.v7.widget.AppCompatEditText
                 android:id="@+id/reference"
-                android:layout_below="@id/tv_ref"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Reference" />
+                android:layout_below="@id/tv_ref"
+                android:hint="Reference"
+                android:maxLength="13"
+                android:fontFamily="@font/lato_regular"
+                android:inputType="text"
+                style="@style/CustomEdittextStyle"
+                android:textColorHint="@color/hint"
+                android:singleLine="true" />
+
+            <TextView
+                android:id="@+id/tv_refph"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/reference"
+                android:text="Ref.Mobile"
+                android:fontFamily="@font/lato_bold"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@color/textview"
+                android:textSize="@dimen/textviewsize"
+                android:layout_marginBottom="4dp"
+                android:textStyle="bold" />
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/Refphone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_refph"
+                android:hint="Mobile number"
+                android:fontFamily="@font/lato_regular"
+                android:inputType="phone"
+                android:layout_marginBottom="4dp"
+                style="@style/CustomEdittextStyle"
+                android:textColorHint="@color/hint"
+                android:singleLine="true" />
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/save"
+                android:layout_width="145dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/Refphone"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/rounded_button"
+                android:text="Save"
+                android:textColor="@android:color/white"
+                android:fontFamily="@font/lato_bold"
+                android:textAllCaps="false" />
 
         </RelativeLayout>
 
+    </RelativeLayout>
 
-    </LinearLayout>
-<!--<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
 
-</ScrollView>-->
-
-</LinearLayout>
+</android.support.v4.widget.NestedScrollView>

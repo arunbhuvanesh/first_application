@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="#EEDDCC">
     <item>
         <shape>
-            <solid android:color="@color/textview"/>
-            <corners android:radius="10dp"/>
+            <solid android:color="#F2E4592D"/>
+            <corners android:radius="30dp"/>
         </shape>
     </item>
 
-</selector>
+</ripple>
 
-<!--#175BAF-->
+
+
+<!--blue color:#175BAF--><!--voilet: #8854d0-->

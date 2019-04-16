@@ -11,6 +11,9 @@ public class Itemlist {
     @SerializedName("item_name")
     @Expose
     private String itemName;
+    @SerializedName("quantity")
+    @Expose
+    private String quantity;
     @SerializedName("status")
     @Expose
     private String status;
@@ -29,6 +32,13 @@ public class Itemlist {
 
     public void setItemName(String itemName) {
         this.itemName = itemName;
+    }
+    public String getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
     }
 
     public String getStatus() {
