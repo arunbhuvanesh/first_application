@@ -14,6 +14,16 @@ public class Admin {
     @SerializedName("password")
     @Expose
     private String password;
+    @SerializedName("response")
+    @Expose
+    private String response;
+
+    public Admin(String id, String username, String password) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+
+    }
 
     public String getId() {
         return id;
@@ -38,4 +48,14 @@ public class Admin {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public String getResponse() {
+        return response;
+    }
+
+    public void setResponse(String response) {
+        this.response = response;
+    }
+
+
 }

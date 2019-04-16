@@ -3,6 +3,7 @@ package com.example.admin.inventory.activites;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -16,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import android.widget.ProgressBar;
 import android.widget.Toast;
 import android.support.v7.widget.SearchView;
 
@@ -40,9 +42,11 @@ import retrofit2.Response;
 
 public class Show_vendorDetails extends AppCompatActivity implements mClickListener, SearchView.OnQueryTextListener {
     private RecyclerView recyclerView;
-    private ShimmerFrameLayout shimmerFrameLayout;
+    FloatingActionButton fab;
+//    private ShimmerFrameLayout shimmerFrameLayout;
     private vendorAdapter adapter;
     ApiInterface apiInterface;
+    private ProgressBar progressBar;
     private List<Vendors> vendorsList;
     private String vendorId = "";
 
@@ -50,17 +54,22 @@ public class Show_vendorDetails extends AppCompatActivity implements mClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_vendor_details);
-        shimmerFrameLayout=findViewById(R.id.shimmerview);
+        progressBar=findViewById(R.id.progressbar);
+
+//        shimmerFrameLayout=findViewById(R.id.shimmerview);
+//        shimmerFrameLayout.startShimmer();
+
 
 
         apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getVendors();
         initView();
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+         fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -78,6 +87,7 @@ public class Show_vendorDetails extends AppCompatActivity implements mClickListe
 /*        mRecyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(layoutManager);*/
+
     }
 
     private void getVendors() {
@@ -108,10 +118,18 @@ public class Show_vendorDetails extends AppCompatActivity implements mClickListe
                         alertDialog.show();
                     }
                 });
-                adapter.setMode(Attributes.Mode.Single);
-                shimmerFrameLayout.stopShimmer();
-                shimmerFrameLayout.setVisibility(View.GONE);
-                recyclerView.setVisibility(View.VISIBLE);
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+
+//                        shimmerFrameLayout.stopShimmer();
+//                        shimmerFrameLayout.setVisibility(View.GONE);
+                        recyclerView.setVisibility(View.VISIBLE);
+                        progressBar.setVisibility(View.GONE);
+
+                    }
+                },600);
                 recyclerView.setAdapter(adapter);
                 recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
                     @Override
@@ -122,6 +140,14 @@ public class Show_vendorDetails extends AppCompatActivity implements mClickListe
                     @Override
                     public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                         super.onScrolled(recyclerView, dx, dy);
+                        if (dy>0&&fab.getVisibility()==View.VISIBLE)
+                        {
+                            fab.hide();
+                        }
+                        else if (dy<0&&fab.getVisibility()!= View.VISIBLE)
+                        {
+                            fab.show();
+                        }
                     }
                 });
 
@@ -165,29 +191,7 @@ public class Show_vendorDetails extends AppCompatActivity implements mClickListe
         search(searchView);*/
         return true;
     }
-/*
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        return super.onOptionsItemSelected(item);
-    }
-
-    private void search(SearchView searchView) {
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-
-                adapter.getFilter().filter(newText);
-                return true;
-            }
-        });
-    }
-*/
 
     @Override
     public void onClick(String id) {
@@ -207,7 +211,7 @@ public class Show_vendorDetails extends AppCompatActivity implements mClickListe
         List<Vendors> newList=new ArrayList<>();
         for (Vendors vendors:vendorsList)
         {
-            if (vendors.getVName().toLowerCase().contains(userInput)||vendors.getVCompany().toLowerCase().contains(userInput)||vendors.getVAddress().toLowerCase().contains(userInput)||vendors.getVPhone().toLowerCase().contains(userInput))
+            if (vendors.getVName().toLowerCase().contains(userInput)||vendors.getVCompany().toLowerCase().contains(userInput)||vendors.getVPhone().toLowerCase().contains(userInput))
             {
                 newList.add(vendors);
             }
@@ -219,13 +223,14 @@ public class Show_vendorDetails extends AppCompatActivity implements mClickListe
     @Override
     protected void onResume() {
         super.onResume();
-        shimmerFrameLayout.startShimmer();
+//        progressBar.setVisibility(View.GONE);
+//        shimmerFrameLayout.stopShimmer();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        shimmerFrameLayout.stopShimmer();
+//        shimmerFrameLayout.stopShimmer();
     }
     @Override
     public void onBackPressed() {

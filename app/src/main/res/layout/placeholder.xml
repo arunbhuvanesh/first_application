@@ -16,8 +16,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="140dp"
-            android:layout_margin="5dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
             android:orientation="vertical"
             android:paddingLeft="10dp"
             android:paddingTop="10dp">
@@ -38,7 +38,7 @@
 
             <TextView
                 android:id="@+id/cname"
-                android:layout_width="130dp"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:drawablePadding="10dp"
                 android:paddingBottom="1dp"
@@ -60,7 +60,7 @@
 
             <TextView
                 android:id="@+id/vph"
-                android:layout_width="130dp"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:drawablePadding="10dp"
                 android:drawableTint="#000000"

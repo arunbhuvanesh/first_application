@@ -3,29 +3,67 @@
     package="com.example.admin.inventory">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/appicon2"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/appicon2_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".activites.Specific_User_details"></activity>
+        <activity
+            android:name=".activites.HistoryActivity"
+            android:label="@string/history_activity"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".activites.Show_outstanding_amount" />
+        <activity android:name=".activites.ImportActivity" />
+        <activity
+            android:name=".activites.updateSalesEntry"
+            android:label="@string/update_salesentry"
+            android:parentActivityName=".activites.show_Userdetails"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activites.updatePurchaseEntry"
+            android:label="@string/update_purchaseentry"
+            android:parentActivityName=".activites.Show_vendorDetails"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activites.Particular_customer_list"
+            android:label="@string/particular_customer"
+            android:parentActivityName=".activites.show_Userdetails"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".activites.Particular_Vendor"
-            android:label="Vendor_Details"
+            android:label="@string/particular_vendor"
+            android:parentActivityName=".activites.Show_vendorDetails"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity android:name=".activites.particularStock" />
         <activity
             android:name=".activites.Total_quantity"
-            android:label="Total_quantity"
+            android:label="@string/total_quantity"
+            android:parentActivityName=".activites.HomeActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
-        <activity android:name=".activites.updateUsers" />
+        <activity
+            android:name=".activites.updateUsers"
+            android:label="@string/update_user"
+            android:parentActivityName=".activites.show_Userdetails"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".activites.MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".splash_Activity">
+        <activity
+            android:name=".splash_Activity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,33 +72,54 @@
         </activity>
         <activity
             android:name=".activites.HomeActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".activites.addUser_Activity"
+            android:label="@string/adduser_activity"
+            android:parentActivityName=".activites.HomeActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".activites.PurchaseEntry"
             android:label="@string/purchaseEntry"
+            android:parentActivityName=".activites.HomeActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
-        <activity android:name=".activites.Additems" />
+        <activity
+            android:name=".activites.Additems"
+            android:label="@string/add_items"
+            android:parentActivityName=".activites.HomeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".activites.PurchaseUserActivity"
             android:label="@string/purchaseuserActivity"
+            android:parentActivityName=".activites.HomeActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".activites.Show_vendorDetails"
+            android:label="@string/show_vendors"
+            android:parentActivityName=".activites.HomeActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activites.VendorActivity"
             android:label="@string/addVendorActivity"
+            android:parentActivityName=".activites.Show_vendorDetails"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".activites.updateVendors"
             android:label="@string/update_Vendor"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".activites.show_Userdetails"
             android:label="@string/title_activity_show__userdetails"
+            android:parentActivityName=".activites.HomeActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
 

@@ -6,160 +6,321 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".activites.PurchaseEntry">
+
+
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:id="@+id/linear"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Product Name"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-            android:textColor="@color/textview"
-            android:textSize="14dp"
-            android:textStyle="bold" />
-
-        <android.support.v7.widget.AppCompatEditText
-            android:id="@+id/productname"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"
-            android:hint="Product Name" />
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Item"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-            android:textColor="@color/textview"
-            android:textSize="14dp"
-            android:textStyle="bold" />
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/title"
+                android:text="PURCHASE ENTRY"
+                android:fontFamily="@font/nunito_bold"
+                android:textSize="20dp"
+                android:layout_centerHorizontal="true"
+                android:textColor="@android:color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
-        <Spinner
-            android:id="@+id/item"
-            android:layout_marginLeft="35dp"
-            android:layout_marginBottom="5dp"
-            android:layout_width="250dp"
-            android:layout_height="40dp"></Spinner>
+            <TextView
+                android:id="@+id/subtitle"
+                android:visibility="gone"
+                android:fontFamily="@font/lato_regular"
+                android:textColor="@android:color/white"
+                android:layout_below="@id/title"
+                android:layout_centerHorizontal="true"
+                android:text="(To Enter the stock purchase details)"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:id="@+id/titleimage"
+                android:layout_below="@id/subtitle"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="0dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/p"
+                android:background="#90000000"
+                android:layout_width="match_parent"
+                android:layout_height="120dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Vendor Name"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-            android:textColor="@color/textview"
-            android:textSize="14dp"
-            android:textStyle="bold" />
+            <ProgressBar
+                android:id="@+id/progressbar"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="140dp"
+                android:progressDrawable="@drawable/progressbar" />
 
-        <Spinner
-        android:id="@+id/ven_name"
-            android:layout_marginLeft="35dp"
-            android:layout_marginBottom="5dp"
-            android:layout_width="250dp"
-            android:layout_height="40dp"></Spinner>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Quantity"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-            android:textColor="@color/textview"
-            android:textSize="14dp"
-            android:textStyle="bold" />
-
-        <android.support.v7.widget.AppCompatEditText
-            android:id="@+id/quanti"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"
-            android:hint="Purchase quantity" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Date"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-            android:textColor="@color/textview"
-            android:textSize="14dp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/date"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"
-            android:clickable="true"
-            android:hint="Purchase Date" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Product Amount"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-            android:textColor="@color/textview"
-            android:textSize="14dp"
-            android:textStyle="bold" />
-
-        <android.support.v7.widget.AppCompatEditText
-            android:id="@+id/price"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"
-            android:inputType="numberDecimal"
-            android:hint="Product Amount" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Debit Amount"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-            android:textColor="@color/textview"
-            android:textSize="14dp"
-            android:textStyle="bold" />
-
-        <android.support.v7.widget.AppCompatEditText
-            android:id="@+id/debit_amt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"
-            android:inputType="numberDecimal"
-            android:hint="Debit" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Balance Amount"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-            android:textColor="@color/textview"
-            android:textSize="14dp"
-            android:textStyle="bold" />
-
-        <android.support.v7.widget.AppCompatEditText
-            android:id="@+id/balance_amt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"
-            android:inputType="numberDecimal"
-            android:clickable="true"
-            android:hint="Balance" />
+            <LinearLayout
+                android:layout_marginTop="120dp"
+                android:id="@+id/linear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
 
 
-        <android.support.v7.widget.AppCompatButton
-            android:id="@+id/puchaseentry"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="150dp"
-            android:background="@drawable/rounded_button2"
-            android:text="Save"
-            android:textAllCaps="false" />
-    </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_bold"
+                    android:text="Product Name"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/textview"
+                    android:layout_marginBottom="4dp"
+                    android:textSize="@dimen/textviewsize"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/productname"
+
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="0dp"
+                    android:layout_height="@dimen/dimen_40dp"
+                    android:layout_marginRight="5dp"
+                    android:drawableLeft="@drawable/ic_quantity"
+                    android:drawableTint="@color/hint"
+                    android:drawablePadding="10dp"
+                    android:hint="Product Name"
+                    style="@style/CustomEdittextStyle"
+                    android:singleLine="true"
+                    android:inputType="text"
+                    android:textColorHint="@color/hint" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_bold"
+                    android:text="Item"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/textview"
+                    android:textSize="@dimen/textviewsize"
+                    android:layout_marginBottom="4dp"
+                    android:textStyle="bold" />
+                <android.support.v7.widget.CardView
+                    android:id="@+id/yourcardid"
+                    android:layout_width="230dp"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="5dp"
+                    android:elevation="1dp"
+                    app:cardCornerRadius="20dp"
+                    android:innerRadius="0dp"
+                    android:shape="ring"
+                    android:thicknessRatio="1.9">
+                    <Spinner
+                        android:id="@+id/item"
+                        android:layout_width="230dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginBottom="5dp"/>
+
+                </android.support.v7.widget.CardView>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_bold"
+                    android:text="Vendor Name"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/textview"
+                    android:textSize="@dimen/textviewsize"
+                    android:layout_marginBottom="4dp"
+                    android:textStyle="bold" />
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/yourcardi1"
+                    android:layout_width="230dp"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="7dp"
+                    android:elevation="1dp"
+                    app:cardCornerRadius="20dp"
+                    android:innerRadius="0dp"
+                    android:shape="ring"
+                    android:thicknessRatio="1.9">
+
+                <Spinner
+                    android:id="@+id/ven_name"
+                    android:layout_width="230dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginBottom="5dp"/>
+                </android.support.v7.widget.CardView>
+
+                <RelativeLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_bold"
+                    android:text="Quantity"
+                    android:id="@+id/tvquans"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/textview"
+                    android:textSize="@dimen/textviewsize"
+                    android:layout_marginBottom="4dp"
+                    android:textStyle="bold" />
+
+                <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/quanti"
+                    android:layout_below="@id/tvquans"
+                    style="@style/CustomEdittextStyle"
+                    android:layout_width="190dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:drawableLeft="@drawable/ic_item_tag"
+                    android:drawableTint="@color/hint"
+                    android:fontFamily="@font/lato_regular"
+                    android:hint="Purchase quantity"
+                    android:singleLine="true"
+                    android:inputType="number"
+                    android:textColorHint="@color/hint" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_bold"
+                    android:text="Date"
+                    android:id="@+id/tvdate"
+                    android:layout_toRightOf="@id/tvquans"
+                    android:layout_marginLeft="143dp"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/textview"
+                    android:textSize="@dimen/textviewsize"
+                    android:layout_marginBottom="4dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/date"
+                    android:layout_toRightOf="@id/quanti"
+                    style="@style/CustomEdittextStyle"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="23dp"
+                    android:layout_marginLeft="5dp"
+                    android:clickable="true"
+                    android:cursorVisible="false"
+                    android:drawableLeft="@drawable/ic_date"
+                    android:drawableTint="@color/hint"
+                    android:ems="10"
+                    android:focusable="true"
+                    android:focusableInTouchMode="false"
+                    android:fontFamily="@font/lato_regular"
+                    android:hint="Purchase Date"
+                    android:inputType="date"
+                    android:singleLine="true"
+                    android:textColorHint="@color/hint" />
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_bold"
+                    android:text="Product Amount"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/textview"
+                    android:textSize="@dimen/textviewsize"
+                    android:layout_marginBottom="4dp"
+                    android:textStyle="bold" />
+
+                <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/price"
+                    style="@style/CustomEdittextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:drawableLeft="@drawable/ic_pricetag"
+                    android:drawableTint="@color/hint"
+                    android:fontFamily="@font/lato_regular"
+                    android:hint="Product Amount"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:textColorHint="@color/hint" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_bold"
+                    android:text="Debit Amount"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/textview"
+                    android:textSize="@dimen/textviewsize"
+                    android:layout_marginBottom="4dp"
+                    android:textStyle="bold" />
+
+                <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/debit_amt"
+                    style="@style/CustomEdittextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:drawableLeft="@drawable/ic_pricetag"
+                    android:drawableTint="@color/hint"
+                    android:fontFamily="@font/lato_regular"
+                    android:hint="Debit Amount"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:textColorHint="@color/hint" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_bold"
+                    android:text="Balance Amount"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/textview"
+                    android:textSize="@dimen/textviewsize"
+                    android:layout_marginBottom="4dp"
+                    android:textStyle="bold" />
+
+                <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/balance_amt"
+                    style="@style/CustomEdittextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:clickable="true"
+                    android:drawableLeft="@drawable/ic_pricetag"
+                    android:drawableTint="@android:color/holo_red_light"
+                    android:fontFamily="@font/lato_regular"
+                    android:hint="Balance Amount"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:textColorHint="@color/hint" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:fontFamily="@font/lato_regular" />
+
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/puchaseentry"
+                    android:layout_width="145dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="105dp"
+                    android:background="@drawable/rounded_button"
+                    android:text="Save"
+                    android:textColor="@android:color/white"
+                    android:textAllCaps="false" />
+
+            </LinearLayout>
+        </RelativeLayout>
+
     </ScrollView>
 
 

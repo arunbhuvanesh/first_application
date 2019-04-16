@@ -4,13 +4,15 @@ package com.example.admin.inventory.remote;
 import com.example.admin.inventory.model.Admin;
 import com.example.admin.inventory.model.Customers;
 import com.example.admin.inventory.model.Itemlist;
+import com.example.admin.inventory.model.OutstandingAmt;
+import com.example.admin.inventory.model.OutstandingHistory;
+import com.example.admin.inventory.model.PQuantity;
+import com.example.admin.inventory.model.ParticularCustomer;
 import com.example.admin.inventory.model.ParticularVendor;
-import com.example.admin.inventory.model.PurchaseEntry;
 import com.example.admin.inventory.model.Quantity;
 import com.example.admin.inventory.model.Vendors;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -26,6 +28,11 @@ public interface ApiInterface {
     /*admin authentication*/
     @GET("login.php")
     Call<Admin> login(@Query("username") String username, @Query("password") String password);
+
+    /*add items*/
+    @FormUrlEncoded
+    @POST("additems.php")
+    Call<ResponseBody> additemcheck(@Field("item") String item,@Field("quantity") String quantity);
 
 
     /*vendor implemnetation*/
@@ -51,7 +58,10 @@ public interface ApiInterface {
 
     @FormUrlEncoded
     @POST("purchase_entry.php")
-    Call<ResponseBody> purchaseentry(@Field("product_name") String productname, @Field("item") String item, @Field("vendor_name") String vendorname, @Field("quantity") int quantity, @Field("date") String date, @Field("p_amt") int p_amount, @Field("d_amt") int debit_amt, @Field("bal_amt") int bal_amt);
+    Call<ResponseBody> purchaseentry(@Field("product_name") String productname, @Field("item") String item, @Field("vendor_name") String vendorname, @Field("quantity") String quantity, @Field("date") String date, @Field("p_amt") String p_amount, @Field("d_amt") String debit_amt, @Field("bal_amt") String bal_amt);
+
+    @GET("updatePurchaseentry.php")
+    Call<ResponseBody> updatePurchaseentry(@Query("id") String id,@Query("quantity") int quantity, @Query("date") String date, @Query("p_amt") int p_amount, @Query("d_amt") int debit_amt, @Query("bal_amt") int bal_amt);
 
     /*item list for spinner*/
     @GET("product_json.php")
@@ -75,11 +85,17 @@ public interface ApiInterface {
     Call<ResponseBody> updateCustomers(@Query("id") String id, @Query("username") String username, @Query("address") String address, @Query("area") String area, @Query("email") String email, @Query("phone") String phone, @Query("reference") String reference, @Query("r_phone") String r_phone);
 
 
+    @GET("particular_customerlist.php")
+    Call<ArrayList<ParticularCustomer>> getParticularCustomer(@Query("id") String id);
+
     /*sales entry*/
 
     @FormUrlEncoded
     @POST("purchasing_user.php")
-    Call<ResponseBody> salesentry(@Field("cname") String cname, @Field("item") String item, @Field("quantity") int quantity, @Field("date") String date, @Field("s_amt") int s_amount, @Field("d_amt") int debit_amt, @Field("bal_amt") int bal_amt);
+    Call<ResponseBody> salesentry(@Field("cname") String cname, @Field("item") String item, @Field("quantity") String quantity, @Field("date") String date, @Field("s_amt") String s_amount, @Field("d_amt") String debit_amt, @Field("bal_amt") String bal_amt);
+
+    @GET("updateSalesEntry.php")
+    Call<ResponseBody> updateSalesentry(@Query("id") String id,@Query("quantity") int quantity, @Query("date") String date, @Query("s_amt") String s_amount, @Query("d_amt") String debit_amt, @Query("bal_amt") String bal_amt);
 
     /*total quantity*/
     @GET("totalquantity.php")
@@ -87,7 +103,24 @@ public interface ApiInterface {
 
     /*particular stock quantity*/
     @GET("particular_stock_quantity.php")
-    Call<ArrayList<Quantity>> getstock(@Query("id") String id);
+    Call<ArrayList<PQuantity>> getstock(@Query("id") String id);
+
+    @GET("user_outstanding.php")
+    Call<ArrayList<OutstandingAmt>> getoutstandingamount(@Query("id") String id);
+
+    @FormUrlEncoded
+    @POST("particular_customer_delete.php")
+    Call<ResponseBody> deletePcustomer(@Field("id") String id);
+
+    @FormUrlEncoded
+    @POST("outstanding_calculation.php")
+    Call<ResponseBody> outstanding_amount_cal(@Field("id")String id,@Field("date") String date,@Field("amount")String amount);
+
+    @GET("outstanding_history.php")
+    Call<ArrayList<OutstandingHistory>> getuserHistory(@Query("id") String id);
+
+    @GET("all_history.php")
+    Call<ArrayList<OutstandingHistory>> getHistory();
 
 
 }

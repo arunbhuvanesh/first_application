@@ -1,54 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
-
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginBottom="5dp"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="20dp">
+    android:foreground="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:layout_marginLeft="8dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginRight="8dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="20dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:orientation="vertical"
-            android:paddingLeft="10dp"
-            android:paddingTop="10dp">
+            android:padding="5dp"
+            >
 
             <TextView
                 android:id="@+id/vname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_person"
+                android:drawableTint="@color/hint"
                 android:drawablePadding="10dp"
-                android:drawableTint="#000000"
-                android:paddingTop="1dp"
-                android:paddingBottom="1dp"
-                android:text="arun"
+                android:text="arunbhuvanesh"
+                android:visibility="gone"
+                style="@style/CustomEdittextStyle2"
                 android:textAllCaps="false"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/itemname"
-                android:layout_width="wrap_content"
+                android:layout_width="170dp"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_item_tag"
-                android:layout_below="@id/vname"
+                android:drawableTint="@color/hint"
                 android:drawablePadding="10dp"
+                android:fontFamily="@font/lato_regular"
+                android:layout_marginTop="9dp"
                 android:layout_marginBottom="5dp"
-                android:drawableTint="#000000"
+                style="@style/CustomEdittextStyle2"
                 android:paddingBottom="1dp"
-                android:text="Ir20"
+                android:text="seeraga sambba"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
 
             <TextView
                 android:id="@+id/quantity"
@@ -57,70 +56,103 @@
                 android:layout_below="@id/itemname"
                 android:drawableLeft="@drawable/ic_quantity_tag"
                 android:drawablePadding="10dp"
-                android:drawableTint="#000000"
+                android:fontFamily="@font/lato_regular"
                 android:paddingBottom="1dp"
+                style="@style/CustomEdittextStyle2"
                 android:text="20"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
 
             <TextView
                 android:id="@+id/date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_phone"
-                android:layout_toRightOf="@id/vname"
+                android:drawableLeft="@drawable/ic_date"
+                android:drawableTint="@color/hint"
+                android:layout_toRightOf="@id/itemname"
+                android:fontFamily="@font/lato_regular"
                 android:layout_marginTop="2dp"
-                android:layout_marginLeft="120dp"
+                android:layout_marginLeft="40dp"
                 android:drawablePadding="10dp"
-                android:drawableTint="#000000"
                 android:text="12/2/2019"
+                style="@style/CustomEdittextStyle2"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+            <TextView
+                android:id="@+id/c"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="80dp"
+                android:text="Cost  :"
+                android:fontFamily="@font/lato_regular"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
             <TextView
                 android:id="@+id/pamt"
-                android:layout_width="wrap_content"
+                android:layout_width="75dp"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_money_tag"
-                android:drawablePadding="10dp"
-                android:layout_below="@id/quantity"
+                android:layout_toRightOf="@id/c"
+                android:layout_marginTop="40dp"
+                android:fontFamily="@font/lato_regular"
+                android:layout_marginLeft="10dp"
                 android:layout_marginBottom="5dp"
-                android:drawableTint="#000000"
-                android:text="100000"
+                android:drawableTint="@color/hint"
+                android:text="10000000"
+                style="@style/CustomEdittextStyle2"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
             <TextView
                 android:id="@+id/damt"
-                android:layout_width="wrap_content"
+                android:visibility="gone"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_money_tag"
-                android:drawablePadding="10dp"
-                android:layout_toRightOf="@id/pamt"
-                android:layout_marginLeft="35dp"
-                android:layout_marginTop="78dp"
+                android:layout_toRightOf="@id/quantity"
+                android:layout_marginLeft="120dp"
+                android:layout_marginTop="38dp"
+                android:fontFamily="@font/lato_regular"
                 android:layout_marginBottom="5dp"
-                android:drawableTint="#000000"
-                android:text="100000"
+                android:drawableTint="@color/hint"
+                android:text="50"
+                style="@style/CustomEdittextStyle2"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
+
+            <TextView
+                android:id="@+id/b"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="210dp"
+                android:text="Balance :"
+                android:fontFamily="@font/lato_regular"
+                android:textColor="@android:color/holo_red_light"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
             <TextView
                 android:id="@+id/bamt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_money_tag"
                 android:drawablePadding="10dp"
-                android:layout_toRightOf="@id/damt"
-                android:layout_marginLeft="35dp"
-                android:layout_marginTop="78dp"
-                android:layout_marginBottom="5dp"
-                android:drawableTint="#ff0000"
+                android:layout_toRightOf="@id/b"
+                android:layout_below="@id/date"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/lato_bold"
                 android:text="100000"
+                style="@style/CustomEdittextStyle2"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
-
+            <ImageView
+                android:layout_marginLeft="335dp"
+                android:layout_marginTop="35dp"
+                android:id="@+id/editicon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:visibility="invisible"
+                android:src="@drawable/ic_edit" />
 
         </RelativeLayout>
 
-
-    </android.support.v7.widget.CardView>
-
-
-
-</LinearLayout>
+</android.support.v7.widget.CardView>

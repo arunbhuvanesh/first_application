@@ -5,19 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:background="@color/dblue"
+    android:background="@drawable/gradient_bgcolor"
     tools:context=".splash_Activity">
     
     <ImageView
         android:layout_centerHorizontal="true"
         android:id="@+id/imageview"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
         android:src="@drawable/appicon"/>
-    <ProgressBar
-        android:visibility="invisible"
+    <com.wang.avi.AVLoadingIndicatorView
+        android:visibility="visible"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
         android:layout_below="@id/imageview"
+        style="@style/AVLoadingIndicatorView.Small"
+        app:indicatorName="LineScalePulseOutIndicator"
+        app:indicatorColor="@android:color/white"
         android:id="@+id/progress"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_width="50dp"
+        android:layout_height="50dp" />
 </RelativeLayout>

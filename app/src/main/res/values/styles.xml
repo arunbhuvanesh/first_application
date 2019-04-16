@@ -27,4 +27,16 @@
 
     </style>
 
+    <style name="CustomEdittextStyle">
+        <item name="android:textSize">@dimen/edittextsize</item>
+        <item name="android:textColor">@color/drawbleTint_black</item>
+        <item name="android:drawablePadding">10dp</item>
+    </style>
+
+
+    <style name="CustomEdittextStyle2">
+        <item name="android:textSize">@dimen/edittextsize</item>
+        <item name="android:textColor">@color/drawbleTint_black</item>
+        <item name="android:drawablePadding">7dp</item>
+    </style>
 </resources>

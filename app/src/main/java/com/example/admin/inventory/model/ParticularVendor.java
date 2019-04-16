@@ -5,6 +5,9 @@ import com.google.gson.annotations.SerializedName;
 
     public class ParticularVendor {
 
+        @SerializedName("id")
+        @Expose
+        private String id;
         @SerializedName("v_name")
         @Expose
         private String vName;
@@ -26,6 +29,14 @@ import com.google.gson.annotations.SerializedName;
         @SerializedName("b_amt")
         @Expose
         private String bAmt;
+
+        public String getId() {
+            return id;
+        }
+
+        public void setId(String id) {
+            this.id = id;
+        }
 
         public String getVName() {
             return vName;

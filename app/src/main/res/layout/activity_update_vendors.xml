@@ -10,14 +10,19 @@
         android:id="@+id/linear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="4dp"
+        android:paddingLeft="7dp"
         android:orientation="vertical">
+
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Username"
             android:textColor="@color/textview"
+            android:textSize="@dimen/textviewsize"
+            android:fontFamily="@font/lato_bold"
+            android:layout_marginLeft="5dp"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
             android:textStyle="bold" />
         <EditText
@@ -33,7 +38,12 @@
             android:layout_marginRight="5dp"
             android:layout_marginBottom="17dp"
             android:drawableLeft="@drawable/ic_person"
+            android:drawableTint="@color/hint"
             android:drawablePadding="7dp"
+            android:singleLine="true"
+            android:fontFamily="@font/lato_regular"
+            style="@style/CustomEdittextStyle"
+            android:textColorHint="@color/hint"
             android:hint="Name" />
 
 
@@ -41,7 +51,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Company Name"
+            android:fontFamily="@font/lato_bold"
             android:textColor="@color/textview"
+            android:textSize="@dimen/textviewsize"
+            android:layout_marginLeft="5dp"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
             android:textStyle="bold" />
 
@@ -52,15 +65,22 @@
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_marginBottom="17dp"
+            android:fontFamily="@font/lato_regular"
             android:drawableLeft="@drawable/ic_company1"
-            android:drawableTint="@color/drawbleTint_black"
+            android:drawableTint="@color/hint"
             android:drawablePadding="7dp"
-            android:hint="Company Nmae" />
+            android:singleLine="true"
+            style="@style/CustomEdittextStyle"
+            android:textColorHint="@color/hint"
+            android:hint="Company nmae" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Address"
+            android:fontFamily="@font/lato_bold"
+            android:layout_marginLeft="5dp"
             android:textColor="@color/textview"
+            android:textSize="@dimen/textviewsize"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
             android:textStyle="bold" />
 
@@ -68,17 +88,25 @@
             android:id="@+id/v_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_company"
+            android:drawableTint="@color/hint"
+            android:fontFamily="@font/lato_regular"
+            android:drawablePadding="7dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_marginBottom="17dp"
-            android:drawableLeft="@drawable/ic_company"
-            android:drawablePadding="7dp"
+            android:singleLine="true"
+            style="@style/CustomEdittextStyle"
+            android:textColorHint="@color/hint"
             android:hint="Address" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Phone Number"
+            android:fontFamily="@font/lato_bold"
             android:textColor="@color/textview"
+            android:layout_marginLeft="5dp"
+            android:textSize="@dimen/textviewsize"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
             android:textStyle="bold" />
 
@@ -86,18 +114,27 @@
             android:id="@+id/v_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_phone"
+            android:drawableTint="@color/hint"
+            android:fontFamily="@font/lato_regular"
+            android:drawablePadding="7dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_marginBottom="7dp"
-            android:hint="Phone number"
-            android:drawablePadding="7dp"
-            android:drawableLeft="@drawable/ic_phone1"/>
+            android:singleLine="true"
+            style="@style/CustomEdittextStyle"
+            android:textColorHint="@color/hint"
+            android:hint="Phone number" />
+
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Email"
+            android:fontFamily="@font/lato_bold"
             android:textColor="@color/textview"
+            android:textSize="@dimen/textviewsize"
+            android:layout_marginLeft="5dp"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
             android:textStyle="bold" />
 
@@ -106,21 +143,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/ic_email"
-            android:drawableTint="@color/drawbleTint_black"
+            android:fontFamily="@font/lato_regular"
+            android:drawableTint="@color/hint"
             android:drawablePadding="7dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_marginBottom="7dp"
+            android:singleLine="true"
+            style="@style/CustomEdittextStyle"
+            android:textColorHint="@color/hint"
             android:hint="Email" />
 
 
         <android.support.v7.widget.AppCompatButton
             android:id="@+id/v_save"
-            android:layout_width="180dp"
+            android:fontFamily="@font/lato_bold"
+            android:layout_width="145dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="90dp"
-            android:background="@drawable/rounded_button2"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_button"
             android:text="Save"
+            android:textColor="@android:color/white"
             android:textAllCaps="false" />
 
 

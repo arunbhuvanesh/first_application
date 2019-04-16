@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/re"
+            android:orientation="horizontal"
+            android:scrollbars="horizontal">
+            <view
+                android:layout_marginTop="0dp"
+                android:layout_width="535dp"
+                android:layout_height="1dp"
+                android:background="#c0c0c0"/>
+            <view
+                android:layout_marginTop="30dp"
+                android:layout_width="535dp"
+                android:layout_height="1dp"
+                android:background="#c0c0c0"/>
+
+            <view
+                android:layout_width="0.5dp"
+                android:layout_height="30dp"
+                android:background="#c0c0c0" />
+
+            <TextView
+                android:id="@+id/itemname"
+                android:layout_width="120dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginBottom="5dp"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/lato_regular"
+                android:text="Seeraga sambba"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+
+            <view
+                android:layout_width="0.5dp"
+                android:layout_toRightOf="@id/itemname"
+                android:layout_height="30dp"
+                android:background="#c0c0c0" />
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_toRightOf="@id/itemname"
+                android:layout_width="80dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:fontFamily="@font/lato_regular"
+                android:text="12/2/2019"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+
+            <view
+                android:layout_width="1dp"
+                android:layout_toRightOf="@id/date"
+                android:layout_height="30dp"
+                android:background="#c0c0c0" />
+
+            <TextView
+                android:id="@+id/quantity"
+                android:layout_toRightOf="@id/date"
+                android:layout_width="40dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:fontFamily="@font/lato_regular"
+                android:text="20"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+
+            <view
+                android:layout_width="1dp"
+                android:layout_toRightOf="@id/quantity"
+                android:layout_height="30dp"
+                android:background="#c0c0c0" />
+
+            <TextView
+                android:id="@+id/samt"
+                android:layout_toRightOf="@id/quantity"
+                android:layout_width="80dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/lato_regular"
+                android:text="10000000"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                android:visibility="visible" />
+
+            <view
+                android:layout_width="1dp"
+                android:layout_toRightOf="@id/samt"
+                android:layout_height="30dp"
+                android:background="#c0c0c0" />
+
+            <TextView
+                android:id="@+id/damt"
+                android:layout_toRightOf="@id/samt"
+                android:layout_width="80dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginBottom="4dp"
+                android:fontFamily="@font/lato_regular"
+                android:text="10000000"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+
+            <view
+                android:layout_width="1dp"
+                android:layout_toRightOf="@id/damt"
+                android:layout_height="30dp"
+                android:background="#c0c0c0" />
+
+            <TextView
+                android:id="@+id/bamt"
+                android:layout_toRightOf="@id/damt"
+                android:layout_width="80dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/lato_bold"
+                android:text="100000"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+
+            <view
+                android:layout_width="1dp"
+                android:layout_toRightOf="@id/bamt"
+                android:layout_height="30dp"
+                android:background="#c0c0c0" />
+
+            <ImageView
+
+                android:id="@+id/editicon"
+                android:layout_toRightOf="@id/bamt"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/ic_edit" />
+
+            <view
+                android:layout_width="1dp"
+                android:layout_toRightOf="@id/editicon"
+                android:layout_height="30dp"
+                android:background="#c0c0c0" />
+
+            <TextView
+                android:id="@+id/sid"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="0dp"
+                android:layout_width="0dp"
+                android:text="12"
+                android:visibility="invisible"
+                android:layout_height="0dp" />
+            <TextView
+                android:id="@+id/cname"
+                android:fontFamily="@font/lato_regular"
+                android:visibility="gone"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="arunbhuvanesh"
+                android:maxLength="13"
+                android:textAllCaps="false"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+
+
+    </HorizontalScrollView>
+</RelativeLayout>

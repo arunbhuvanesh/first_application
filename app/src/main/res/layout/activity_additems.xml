@@ -4,89 +4,103 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="0dp"
     tools:context=".activites.Additems">
 
-    <LinearLayout
+
+
+
+    <ImageView
+        android:id="@+id/itemsimage"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <android.support.v7.widget.SearchView
-            android:id="@+id/searchview"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content">
-
-        </android.support.v7.widget.SearchView>
-
-        <android.support.v7.widget.AppCompatButton
-            android:id="@+id/itemsave"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/rounded_button2"
-            android:text="Save"
-            android:textAllCaps="false" />
-
-    </LinearLayout>
+        android:layout_height="130dp"
+        android:background="#10000000"
+        android:scaleType="centerCrop"
+        android:src="@drawable/i" />
 
 
-    <LinearLayout
-        android:id="@+id/itemlinear"
+    <RelativeLayout
+        android:layout_below="@id/itemsimage"
+        android:layout_margin="5dp"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tvitem"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="109dp"
-        android:orientation="vertical">
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp">
-
-            <android.support.v7.widget.AppCompatEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="item name" />
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <android.support.v7.widget.AppCompatEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Quantity" />
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp">
-
-            <android.support.v7.widget.AppCompatEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="price" />
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp">
-
-            <android.support.v7.widget.AppCompatEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="min.quantity level" />
-        </android.support.design.widget.TextInputLayout>
+        android:text="Item Name"
+        android:visibility="gone"
+        android:fontFamily="@font/lato_bold"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        android:textColor="@color/textview"
+        android:textSize="@dimen/textviewsize"
+         />
 
 
-    </LinearLayout>
 
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
+    <android.support.v7.widget.AppCompatEditText
+        android:id="@+id/item"
+        android:layout_below="@id/tvitem"
+        android:layout_width="350dp"
+        android:background="@drawable/rounded_box"
+        android:layout_height="50dp"
+        android:drawableLeft="@drawable/ic_quantity"
+        android:drawableTint="@color/hint"
+        android:layout_marginTop="30dp"
+        android:singleLine="true"
+        android:layout_centerHorizontal="true"
+        style="@style/CustomEdittextStyle"
+        android:fontFamily="@font/lato_regular"
+        android:textColorHint="@color/hint"
+        android:hint="Item Name" />
+
+    <TextView
+        android:id="@+id/qitem"
+        android:layout_below="@id/item"
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/itemlinear">
+        android:text="Quantity"
+        android:visibility="gone"
+        android:fontFamily="@font/lato_bold"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        android:textColor="@color/textview"
+        android:textSize="@dimen/textviewsize"
+        android:textStyle="bold" />
 
-    </android.support.v7.widget.RecyclerView>
+    <android.support.v7.widget.AppCompatEditText
+        android:id="@+id/itemquantity"
+        android:layout_below="@id/qitem"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_centerHorizontal="true"
+        android:drawableLeft="@drawable/ic_item_tag"
+        android:drawableTint="@color/hint"
+        android:singleLine="true"
+        android:background="@drawable/rounded_box"
+        android:fontFamily="@font/lato_regular"
+        style="@style/CustomEdittextStyle"
+        android:textColorHint="@color/hint"
+        android:hint="Quantity" />
+
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/itemsave"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/itemquantity"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/rounded_button"
+        android:singleLine="true"
+        android:text="Save"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/lato_regular"
+        android:textAllCaps="false" />
+    </RelativeLayout>
+
 
 </RelativeLayout>

@@ -5,11 +5,12 @@ import android.os.Bundle;
 
 import com.example.admin.inventory.R;
 
-public class Specific_User_details extends AppCompatActivity {
+public class Show_outstanding_amount extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_specific__user_details);
+        setContentView(R.layout.activity_show_outstanding_amount);
+
     }
 }
